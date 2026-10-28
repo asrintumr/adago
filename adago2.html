@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AdaGo – Famagusta student guide</title>
+<meta name="description" content="Housing, arrival help, places to go and directions for EMU students in Famagusta.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath d='M60 112C60 112 96 79 96 50A36 36 0 0 0 24 50C24 79 60 112 60 112Z' fill='%230A6C86'/%3E%3Cpath d='M31.0 51.5 L32.5 53.4 L34.2 61.0 L39.2 64.4 L44.7 65.0 L50.0 67.4 L51.2 64.7 L58.0 62.8 L64.7 60.4 L65.2 56.7 L71.2 55.2 L76.2 54.9 L73.5 52.4 L72.7 48.2 L75.5 42.7 L84.2 37.2 L89.0 32.6 L84.7 34.7 L76.7 39.3 L70.5 41.7 L61.7 43.6 L57.2 43.6 L47.5 41.7 L47.2 46.3 L44.2 48.8 L39.2 48.5 L35.5 52.1Z' fill='%23FFFFFF' stroke='%23FFFFFF' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --surface-2: #EEF2F5;
+  --ink: #12212E;
+  --ink-2: #33404B;
+  --muted: #4F5B66;
+  --line: #DDE3E8;
+  --line-2: #CFD8DF;
+  --sea: #0A6C86;
+  --pin: #0A6C86;
+  --sea-ink: #0A5468;
+  --sea-tint: #E3F1F5;
+  --on-sea: #FFFFFF;
+  --clay: #B54708;
+  --clay-ink: #8A3505;
+  --clay-tint: #FFF4EC;
+  --clay-line: #F3CFB6;
+  --sun: #F2C94C;
+  --sun-ink: #4D3B00;
+  --sun-tint: #FBF0CC;
+  --leaf-tint: #E8F3EC;
+  --chip-on: #12212E;
+  --chip-on-ink: #FFFFFF;
+  --focus: #0A6C86;
+  --display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --text: Inter, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1A23; --surface: #172631; --surface-2: #1F313D; --ink: #EAF0F4; --ink-2: #CBD6DD; --muted: #A3B1BB;
+    --line: #2A3D4A; --line-2: #375062; --sea: #5CB8D1; --sea-ink: #9AD5E5; --sea-tint: #16343F; --on-sea: #0B1A21;
+    --clay: #F0A06C; --clay-ink: #F5BB93; --clay-tint: #2E2019; --clay-line: #4E3324; --sun: #F2C94C; --sun-ink: #F7DD8A; --sun-tint: #322A12;
+    --leaf-tint: #1A2E24; --pin: #1A8BA8; --chip-on: #EAF0F4; --chip-on-ink: #0F1A23; --focus: #5CB8D1; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1A23; --surface: #172631; --surface-2: #1F313D; --ink: #EAF0F4; --ink-2: #CBD6DD; --muted: #A3B1BB;
+  --line: #2A3D4A; --line-2: #375062; --sea: #5CB8D1; --sea-ink: #9AD5E5; --sea-tint: #16343F; --on-sea: #0B1A21;
+  --clay: #F0A06C; --clay-ink: #F5BB93; --clay-tint: #2E2019; --clay-line: #4E3324; --sun: #F2C94C; --sun-ink: #F7DD8A; --sun-tint: #322A12;
+  --leaf-tint: #1A2E24; --pin: #1A8BA8; --chip-on: #EAF0F4; --chip-on-ink: #0F1A23; --focus: #5CB8D1; color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); }
+body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: var(--text); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: var(--sea); }
+a:hover { color: var(--sea-ink); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+img, svg { max-width: 100%; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid transparent; }
+.top.scrolled { border-bottom-color: var(--line); }
+.top-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 12px; padding: 12px 20px; }
+.logo { display: flex; align-items: center; gap: 6px; color: var(--sea); text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; }
+.logo span { font-family: var(--display); font-size: 25px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+.top-nav { display: none; gap: 4px; margin-left: 20px; }
+.top-nav button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--muted); font-weight: 600; font-size: 15px; cursor: pointer; }
+.top-nav button[aria-current="page"] { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.top-tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.icon-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-weight: 700; font-size: 17px; cursor: pointer; }
+.seg { display: flex; padding: 3px; border-radius: 999px; background: var(--surface-2); }
+.seg button { min-width: 46px; min-height: 38px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-2); font-size: 14px; font-weight: 600; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--chip-on); color: var(--chip-on-ink); font-weight: 700; }
+
+/* layout */
+main { max-width: 1120px; margin: 0 auto; padding: 8px 20px calc(110px + env(safe-area-inset-bottom, 0px)); }
+.view { display: flex; flex-direction: column; gap: 28px; }
+.view-head { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; }
+h1 { margin: 0; font-family: var(--display); font-size: clamp(30px, 6vw, 46px); line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; max-width: 18ch; }
+h2 { margin: 0; font-family: var(--display); font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
+h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
+.lede { margin: 0; color: var(--muted); font-size: 17px; max-width: 58ch; }
+.small { font-size: 13px; color: var(--muted); }
+.sec { display: flex; flex-direction: column; gap: 12px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.link-btn { min-height: 44px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: var(--sea); font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none; }
+.uni { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: var(--sea-tint); color: var(--sea-ink); font-size: 14px; font-weight: 600; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.pad { padding: 18px; }
+.stack { display: flex; flex-direction: column; gap: 10px; }
+.grid2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 20px; border-radius: 14px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn:hover { color: var(--ink); border-color: var(--muted); }
+.btn.primary { background: var(--sea); border-color: var(--sea); color: var(--on-sea); }
+.btn.primary:hover { color: var(--on-sea); filter: brightness(1.06); }
+.btn.sun { background: var(--sun); border-color: var(--sun); color: #12212E; }
+.btn.sun:hover { color: #12212E; }
+.btn[disabled] { opacity: .55; cursor: not-allowed; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.btns > * { flex: 1 1 150px; }
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--sea-tint); color: var(--sea-ink); }
+.pill.dark { background: var(--chip-on); color: var(--chip-on-ink); }
+.pill.sun { background: var(--sun-tint); color: var(--sun-ink); }
+.chips { display: flex; gap: 8px; overflow-x: auto; margin: 0 -20px; padding: 2px 20px 6px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--chip-on); border-color: var(--chip-on); color: var(--chip-on-ink); }
+
+/* hero band on home */
+.hero { position: relative; overflow: hidden; border-radius: 24px; background: var(--sea); color: var(--on-sea); padding: 26px 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.hero h1 { color: var(--on-sea); }
+.hero p { margin: 0; max-width: 46ch; font-size: 17px; opacity: .92; }
+.hero .uni { background: rgba(255,255,255,.16); color: var(--on-sea); }
+.hero svg.waves { position: absolute; right: -40px; bottom: -30px; width: 300px; opacity: .22; pointer-events: none; }
+
+/* lists */
+.row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 16px; border: 0; background: none; color: var(--ink); text-align: left; cursor: pointer; text-decoration: none; min-height: 64px; }
+.row + .row { border-top: 1px solid var(--line); }
+.row:hover { background: var(--surface-2); color: var(--ink); }
+.row .ico { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; background: var(--sea-tint); color: var(--sea); }
+.row .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.row .t { font-weight: 600; }
+.row .s { font-size: 14px; color: var(--muted); }
+.row .chev { color: var(--muted); flex-shrink: 0; }
+.rail { display: flex; gap: 12px; overflow-x: auto; margin: 0 -20px; padding: 2px 20px 8px; scroll-snap-type: x mandatory; }
+.rail > * { scroll-snap-align: start; }
+.week { flex: 0 0 240px; display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); text-align: left; cursor: pointer; color: var(--ink); }
+.week .when { font-family: var(--display); font-size: 20px; font-weight: 700; line-height: 1.15; }
+.week:hover { border-color: var(--line-2); }
+
+.place { display: flex; gap: 14px; width: 100%; padding: 14px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); text-align: left; cursor: pointer; color: var(--ink); }
+.place:hover { border-color: var(--line-2); }
+.place .mark { flex-shrink: 0; width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--ink-2); }
+.place .body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.place .name { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 16px; }
+.place .meta { font-size: 14px; color: var(--muted); }
+.places { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.t-cafe { background: var(--sea-tint); } .t-bar { background: var(--clay-tint); } .t-act { background: var(--surface-2); } .t-sport { background: var(--leaf-tint); } .t-taxi { background: var(--sun-tint); }
+
+.featured { display: grid; gap: 10px; padding: 20px; border-radius: 20px; background: var(--ink); color: var(--bg); text-align: left; border: 0; cursor: pointer; }
+.featured .pill { background: var(--bg); color: var(--ink); justify-self: start; }
+.featured .fname { font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1.1; }
+.featured .fmeta { opacity: .8; font-size: 15px; }
+
+/* detail */
+.facts { display: flex; flex-direction: column; }
+.fact { display: flex; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 15px; }
+.fact + .fact { border-top: 1px solid var(--line); }
+.fact dt { color: var(--muted); flex-shrink: 0; }
+.fact dd { margin: 0; font-weight: 600; text-align: right; }
+.note { padding: 16px; border-radius: 16px; background: var(--clay-tint); border: 1px solid var(--clay-line); color: var(--clay-ink); display: flex; flex-direction: column; gap: 6px; }
+.note p { margin: 0; color: var(--ink-2); }
+.why { padding: 16px; border-radius: 16px; background: var(--sea-tint); }
+.why p { margin: 4px 0 0; }
+
+/* checklist */
+.bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 999px; background: var(--sea); }
+.check { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; cursor: pointer; }
+.check + .check { border-top: 1px solid var(--line); }
+.check input { flex-shrink: 0; width: 24px; height: 24px; margin: 1px 0 0; accent-color: var(--sea); cursor: pointer; }
+.check .t { font-weight: 600; }
+.check.done .t { text-decoration: line-through; color: var(--muted); }
+.check .s { font-size: 14px; color: var(--muted); }
+
+/* forms */
+form { display: flex; flex-direction: column; gap: 14px; }
+label.f { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px; }
+.f input, .f select { min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); font-weight: 500; }
+.ok { padding: 14px 16px; border-radius: 14px; background: var(--sea-tint); color: var(--sea-ink); font-weight: 600; }
+
+/* route */
+.fromto { display: flex; flex-direction: column; gap: 8px; }
+.ft { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 14px; border-radius: 12px; background: var(--surface-2); }
+.ft .k { color: var(--muted); font-size: 14px; width: 48px; flex-shrink: 0; }
+.ft .v { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dot { width: 10px; height: 10px; border-radius: 999px; background: var(--sea); box-shadow: 0 0 0 3px var(--sea-tint); flex-shrink: 0; }
+.opt { border-radius: 16px; background: var(--surface); border: 2px solid var(--line); }
+.opt.open { border-color: var(--sea); }
+.opt-head { display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 16px; border: 0; background: none; text-align: left; cursor: pointer; color: var(--ink); }
+.opt-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.opt-time { font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1; }
+.opt-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.mode { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 14px; font-weight: 700; }
+.mode.walk { background: var(--surface-2); color: var(--ink-2); }
+.mode.car { background: var(--chip-on); color: var(--chip-on-ink); }
+.mode.taxi { background: var(--sun); color: #12212E; }
+.steps { list-style: none; margin: 0; padding: 4px 16px 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
+.steps li { display: flex; gap: 12px; padding-top: 12px; }
+.steps .sd { flex-shrink: 0; width: 30px; height: 30px; border-radius: 999px; display: flex; align-items: center; justify-content: center; }
+.steps .st { font-weight: 700; }
+.steps .ss { font-size: 14px; color: var(--muted); }
+.steps .sx { display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 999px; background: var(--clay-tint); color: var(--clay-ink); font-size: 13px; font-weight: 600; }
+.opt-foot { padding: 0 16px 16px; }
+
+/* footer + tabbar */
+footer { max-width: 1120px; margin: 0 auto; padding: 0 20px calc(110px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 13px; }
+.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px calc(8px + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--line); }
+.tabbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 54px; border: 0; background: none; color: var(--muted); font-size: 12px; font-weight: 500; cursor: pointer; }
+.tabbar button[aria-current="page"] { color: var(--sea); font-weight: 700; }
+
+@media (min-width: 760px) {
+  .grid2 { grid-template-columns: 1fr 1fr; align-items: start; }
+  .places { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 40px 36px 36px; }
+}
+@media (min-width: 960px) {
+  .top-nav { display: flex; }
+  .tabbar { display: none; }
+  main { padding-bottom: 48px; }
+  footer { padding-bottom: 40px; }
+  .places { grid-template-columns: 1fr 1fr 1fr; }
+  .narrow { max-width: 720px; }
+}
+</style>
+</head>
+<body>
+<header class="top" id="top"></header>
+<main id="app" tabindex="-1"></main>
+<footer id="foot"></footer>
+<nav class="tabbar" id="tabs"></nav>
+<script>
+const PLACES = [{"id": "tatli", "cat": "cafe", "n": ["Tatlı Hayat", "Tatlı Hayat"], "area": ["Şehir merkezi", "City centre"], "tag": ["Ev yapımı pastalar", "Homemade cakes"], "why": ["Ev yapımı pastalar, doğal malzemeli sandviçler ve retro dekor. Self servis.", "Homemade cakes, sandwiches with natural ingredients and retro décor. Self-service."], "hours": ["Her gün 09:00–23:00", "Daily 09:00–23:00"], "address": "İstiklal Cd., Gazimağusa", "phone": "+90 548 860 20 31", "pid": "ChIJQ2s5Y_PJ3xQRzUlcY52x638", "featured": true, "lat": 35.1219116, "lng": 33.9400228}, {"id": "flatblack", "cat": "cafe", "n": ["Flat Black Coffee", "Flat Black Coffee"], "area": ["EMU kampüsü", "EMU campus"], "tag": ["Öğrenci dostu fiyatlar", "Student-friendly prices"], "why": ["Kampüsteki en uygun fiyatlı kahvelerden biri; güler yüzlü baristalar ve bahçe.", "Some of the most affordable coffee on campus, with friendly baristas and a garden."], "hours": ["Her gün 08:00–23:30", "Daily 08:00–23:30"], "address": "Doğu Akdeniz Üniversitesi, Gazimağusa", "phone": "+90 533 846 60 98", "pid": "ChIJs3FQn0bJ3xQRrs2cCL9t6UM", "featured": false, "lat": 35.14156, "lng": 33.9132923}, {"id": "mackbear", "cat": "cafe", "n": ["Mackbear Coffee Co.", "Mackbear Coffee Co."], "area": ["EMU yanı", "Next to EMU"], "tag": ["Ders çalışmaya uygun", "Good for studying"], "why": ["Masaların yanında priz var; sakin ortamıyla ders çalışmak için sevilen bir yer.", "Sockets by the seats and a calm vibe make it a favourite study spot."], "hours": ["Pzt–Cmt 08:00–01:00 · Paz 12:00–01:00", "Mon–Sat 08:00–01:00 · Sun 12:00–01:00"], "address": "Novel Centre Point No: 9-10, Gazimağusa", "phone": "", "pid": "ChIJQfBaUnLJ3xQR8bHhEtavS_M", "featured": false, "lat": 35.140845, "lng": 33.9148208}, {"id": "gua", "cat": "cafe", "n": ["Gua Coffee", "Gua Coffee"], "area": ["Salamis Yolu", "Salamis Yolu"], "tag": ["Sessiz çalışma odası", "Quiet work room"], "why": ["Geniş ve modern; ayrı çalışma odası, bahçe terası, bubble tea ve matcha.", "Spacious and modern, with a separate work room, garden terrace, bubble tea and matcha."], "hours": ["Her gün 07:30–01:00", "Daily 07:30–01:00"], "address": "Güneş Apartı, Salamis Yolu 145, Gazimağusa", "phone": "", "pid": "ChIJf8JnziHJ3xQRl8Rou-gygng", "featured": false, "lat": 35.1364016, "lng": 33.9209314}, {"id": "barnila", "cat": "cafe", "n": ["Cafe De Barnila", "Cafe De Barnila"], "area": ["Suriçi", "Old Town"], "tag": ["Türk kahvaltısı", "Turkish breakfast"], "why": ["Suriçi’nde sevilen bir kahvaltı yeri; mıhlama ve menemen öneriliyor.", "A popular breakfast spot in the Old Town, known for mıhlama and menemen."], "hours": ["Sal–Paz 08:30–15:00 · Pzt kapalı", "Tue–Sun 08:30–15:00 · closed Mon"], "address": "Naim Efendi Sk. 24, Suriçi, Gazimağusa", "phone": "+90 533 850 77 00", "pid": "ChIJMaBpkYzJ3xQRVi1U9mmDcSo", "featured": false, "lat": 35.1259496, "lng": 33.9412912}, {"id": "delmar", "cat": "cafe", "n": ["Cafe Del Mar", "Cafe Del Mar"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["Tostlarıyla ünlü", "Known for toasties"], "why": ["Güler yüzlü sahipler, uygun fiyatlar ve çok sevilen tostlar.", "Friendly owners, fair prices and much-loved toasties."], "hours": ["Sal–Paz 07:30–19:00 · Pzt kapalı", "Tue–Sun 07:30–19:00 · closed Mon"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 533 888 07 74", "pid": "ChIJe-P4Ag_J3xQROCWdA2WVnwI", "featured": false, "lat": 35.1303559, "lng": 33.9241666}, {"id": "fondaco", "cat": "bar", "n": ["Fondaco Cafe & Bar", "Fondaco Cafe & Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik · Cuma & Cumartesi", "Live music · Fri & Sat"], "why": ["Suriçi’nde eski ve otantik bir bar; kokteyller ve hafta sonu canlı müzik.", "An old, authentic bar in the Old Town, with cocktails and live music at weekends."], "hours": ["Cuma ve cumartesi geceleri canlı müzik", "Live music Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": true, "lat": 35.1241902, "lng": 33.9423982}, {"id": "demolay", "cat": "bar", "n": ["De Molay Bar", "De Molay Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyller · canlı müzik geceleri", "Cocktails · live music nights"], "why": ["Tarihi bir binada kokteyl bar; güler yüzlü ekip ve canlı müzik geceleri.", "Cocktail bar in a historic building, with friendly staff and live music nights."], "hours": ["Pzt–Cmt 18:00–02:00 · Paz 18:00–00:30", "Mon–Sat 18:00–02:00 · Sun 18:00–00:30"], "address": "Kışla Yolu Sk., Gazimağusa", "phone": "+90 533 868 08 08", "pid": "ChIJGefq4EzJ3xQRzam5kpCSD4s", "featured": false, "lat": 35.1254379, "lng": 33.9407037}, {"id": "pickle", "cat": "bar", "n": ["Pickle Pub", "Pickle Pub"], "area": ["Suriçi", "Old Town"], "tag": ["Yemek ve kokteyl", "Food & cocktails"], "why": ["Turşu temalı pub; iyi yemek, kokteyller ve keyifli müzik.", "Pickle-themed pub with good food, cocktails and great music."], "hours": ["Her gün 12:00–02:00", "Daily 12:00–02:00"], "address": "Kışla Yolu Sk. 8, Gazimağusa", "phone": "+90 533 889 04 23", "pid": "ChIJyYHdBQDJ3xQRL2FZCtjToSw", "featured": false, "lat": 35.125361, "lng": 33.9407493}, {"id": "legendary", "cat": "bar", "n": ["Legendary Sports Bar", "Legendary Sports Bar"], "area": ["EMU yanı", "Next to EMU"], "tag": ["Dev ekranda maçlar", "Matches on big screens"], "why": ["Büyük ekranlarda futbol ve F1, bilardo ve dart. Otelin 2. katında.", "Football and F1 on big screens, plus pool and darts. On the hotel’s 2nd floor."], "hours": ["Her gün 12:00–00:00", "Daily 12:00–00:00"], "address": "Novel Centre Point Hotel, İsmet İnönü Blv., Gazimağusa", "phone": "+90 392 365 00 51", "pid": "ChIJr940yNLJ3xQR_b7XYFeNeco", "featured": false, "lat": 35.1411331, "lng": 33.9148702}, {"id": "barcode", "cat": "bar", "n": ["BARCODE", "BARCODE"], "area": ["EMU karşısı", "Opposite EMU"], "tag": ["Rock bar · canlı müzik", "Rock bar · live music"], "why": ["Kampüsün karşısında rock bar; canlı müzik, burger ve bira.", "Rock bar opposite campus, with live music, burgers and beer."], "hours": ["Pzt–Cmt 16:00–02:00 · Paz kapalı", "Mon–Sat 16:00–02:00 · closed Sun"], "address": "İsmet İnönü Blv., Arken Apt. D3, Gazimağusa", "phone": "+90 542 859 63 89", "pid": "ChIJyckala3J3xQRhhTus-AsySk", "featured": false, "lat": 35.1432253, "lng": 33.9140453}, {"id": "enbarr", "cat": "bar", "n": ["EnBarr", "EnBarr"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik", "Live music"], "why": ["Suriçi’nde canlı müzik barı; iyi müzik ve servis.", "Live music bar in the Old Town with great music and service."], "hours": ["Sal–Paz 17:00–02:00 · Pzt kapalı", "Tue–Sun 17:00–02:00 · closed Mon"], "address": "Muzaffer Ersu Sk., Gazimağusa", "phone": "+90 533 822 23 40", "pid": "ChIJRaWdZTnJ3xQRBpGM3e3jEF8", "featured": false, "lat": 35.1247101, "lng": 33.9446148}, {"id": "monks", "cat": "bar", "n": ["Monks Inn", "Monks Inn"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyl bar", "Cocktail bar"], "why": ["Etkileyici bir binada kaliteli kokteyller.", "Quality cocktails in a striking building."], "hours": ["Her gün 17:00–02:00", "Daily 17:00–02:00"], "address": "William Dreghorn Sk., Gazimağusa", "phone": "+90 392 366 97 44", "pid": "ChIJ21iK5zrI3xQRj4ASW2JSwfo", "featured": false, "lat": 35.1253829, "lng": 33.9436039}, {"id": "fondacolive", "cat": "act", "n": ["Fondaco’da canlı müzik", "Live music at Fondaco"], "area": ["Suriçi", "Old Town"], "tag": ["Cuma & Cumartesi geceleri", "Fri & Sat nights"], "why": ["Fondaco Cafe & Bar’da her hafta sonu canlı müzik.", "Live music every weekend at Fondaco Cafe & Bar."], "hours": ["Cuma ve cumartesi geceleri", "Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": false, "lat": 35.1241902, "lng": 33.9423982}, {"id": "cinemall", "cat": "act", "n": ["Cinemall", "Cinemall"], "area": ["City Mall", "City Mall"], "tag": ["Sinema", "Cinema"], "why": ["City Mall içinde sinema; mağazalar, kafeler ve oyun salonu aynı binada.", "Cinema inside City Mall, with shops, cafés and an arcade in the same building."], "hours": ["Her gün 10:00–22:00", "Daily 10:00–22:00"], "address": "Şht. İbrahim Kazım Cd., Gazimağusa", "phone": "+90 392 365 58 00", "pid": "ChIJmSi7OVvJ3xQRhe2OrO9RGdY", "featured": false, "lat": 35.1258672, "lng": 33.9204361}, {"id": "bowling", "cat": "act", "n": ["Ice Bowling", "Ice Bowling"], "area": ["Kaliland", "Kaliland"], "tag": ["Bowling", "Bowling"], "why": ["Arkadaşlarla bowling; hemen yanında The Shamrock bar var.", "Bowling with friends, with The Shamrock bar right next door."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Halil Hamza Yolu, Gazimağusa", "phone": "", "pid": "ChIJu_X7WsTJ3xQRyQ4aIrdbYlM", "featured": false, "lat": 35.13266, "lng": 33.915614}, {"id": "othello", "cat": "act", "n": ["Othello Kalesi", "Othello Tower"], "area": ["Suriçi", "Old Town"], "tag": ["Gün batımı manzarası", "Sunset views"], "why": ["Surların üstünden liman ve Suriçi manzarası; gün batımında harika.", "Views over the harbour and Old Town from the walls, best at sunset."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Yeşil Deniz Cd. 35, Gazimağusa", "phone": "", "pid": "ChIJlQVuKvbJ3xQRXvoYQ-PiaXc", "featured": false, "lat": 35.1274147, "lng": 33.9436428}, {"id": "salamis", "cat": "act", "n": ["Salamis Antik Kenti", "Ancient Salamis"], "area": ["Salamis", "Salamis"], "tag": ["Antik kent", "Ancient city"], "why": ["Roma dönemi kalıntıları, hamamlar ve tiyatro. Erken git, öğlen çok sıcak.", "Roman ruins, baths and an amphitheatre. Go early: midday is very hot."], "hours": ["Her gün 08:00–19:00", "Daily 08:00–19:00"], "address": "Salamis, Gazimağusa", "phone": "", "pid": "ChIJp27_CgC33xQRQl7ihJUAS9s", "featured": false, "lat": 35.1865485, "lng": 33.903597}, {"id": "glapsides", "cat": "act", "n": ["Glapsides Plajı", "Glapsides Beach"], "area": ["Glapsides", "Glapsides"], "tag": ["Kumsal", "Sandy beach"], "why": ["Sığ ve berrak deniz; şezlong, duş ve tuvalet var.", "Shallow, clear water with sunbeds, showers and toilets."], "hours": ["Açık alan", "Open-air"], "address": "Glapsides Plajı, Gazimağusa", "phone": "", "pid": "ChIJyRRCsT623xQRMg3k1_yVOUA", "featured": false, "lat": 35.1613989, "lng": 33.9130574}, {"id": "lmp", "cat": "sport", "n": ["Lala Mustafa Paşa Spor Salonu", "Lala Mustafa Paşa Sports Complex"], "area": ["EMU kampüsü", "EMU campus"], "tag": ["Spor salonu ve kortlar", "Gym & courts"], "why": ["Kampüste spor salonu, basketbol, voleybol ve squash kortları.", "On-campus gym plus basketball, volleyball and squash courts."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Lala Mustafa Paşa Spor Sarayı, Gazimağusa", "phone": "", "pid": "ChIJF2ZfUOfJ3xQRrcJ49Lc_b68", "featured": false, "lat": 35.141652, "lng": 33.9079969}, {"id": "gymaholic", "cat": "sport", "n": ["Gymaholic Fitness Center", "Gymaholic Fitness Center"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Büyük salon · yoga", "Big gym · yoga"], "why": ["Çok katlı büyük salon; yoga ve kardiyo alanları. Kart geçmeyebilir, nakit götür.", "Huge multi-floor gym with yoga and cardio rooms. Bring cash: cards may not be accepted."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMF+PFW, Gazimağusa", "phone": "", "pid": "ChIJs30Jz13J3xQR4BtrN5HzhDA", "featured": false, "lat": 35.1343735, "lng": 33.9236995}, {"id": "rebel", "cat": "sport", "n": ["2REBEL Sports Club", "2REBEL Sports Club"], "area": ["Macro AVM", "Macro AVM"], "tag": ["Fitness ve kickboks", "Fitness & kickboxing"], "why": ["Temiz ve geniş salon, profesyonel eğitmenler ve kickboks dersleri.", "Clean, spacious gym with professional coaches and kickboxing classes."], "hours": ["Pzt–Cum 08:00–22:00 · Cmt 10:00–19:00 · Paz kapalı", "Mon–Fri 08:00–22:00 · Sat 10:00–19:00 · closed Sun"], "address": "Macro AVM 1. kat, İsmet İnönü Blv., Gazimağusa", "phone": "+90 533 883 57 99", "pid": "ChIJ43JqHcPJ3xQR5eamXa6MRUA", "featured": false, "lat": 35.1330567, "lng": 33.9230989}, {"id": "fitplus", "cat": "sport", "n": ["Fit Plus ViaPark", "Fit Plus ViaPark"], "area": ["Alasya Park", "Alasya Park"], "tag": ["Havuz ve CrossFit", "Pool & CrossFit"], "why": ["Kendi havuzu ve ayrı CrossFit alanı olan spor salonu.", "Gym with its own pool and a separate CrossFit area."], "hours": ["Pzt–Cum 06:00–22:00 · Cmt–Paz 08:00–21:00", "Mon–Fri 06:00–22:00 · Sat–Sun 08:00–21:00"], "address": "Alasya Park Sitesi, Uluçam Yolu Sk. 2, Gazimağusa", "phone": "", "pid": "ChIJG2Pki2HJ3xQREW7csSUJtTE", "featured": false, "lat": 35.1382455, "lng": 33.9282046}, {"id": "powergym", "cat": "sport", "n": ["Power Gym", "Power Gym"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Uygun üyelik", "Affordable membership"], "why": ["Uygun fiyatlı üyelik, güler yüzlü ekip ve geniş ekipman.", "Affordable membership, friendly staff and lots of equipment."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMG+292, Gazimağusa", "phone": "", "pid": "ChIJE6yjGpLJ3xQRzquKvyfIeZA", "featured": false, "lat": 35.1325185, "lng": 33.9258818}, {"id": "sporium", "cat": "sport", "n": ["Sporium Gym Mağusa", "Sporium Gym Mağusa"], "area": ["Fikret Demirağ Sk.", "Fikret Demirağ Sk."], "tag": ["Yeni ekipman", "New equipment"], "why": ["Yeni açılmış temiz salon; yeni başlayanlara sabırlı eğitmenler.", "Newly opened, clean gym with coaches who are patient with beginners."], "hours": ["Pzt–Cum 07:00–23:00 · Cmt 12:00–20:00 · Paz 12:00–17:00", "Mon–Fri 07:00–23:00 · Sat 12:00–20:00 · Sun 12:00–17:00"], "address": "Fikret Demirağ Sk., Gazimağusa", "phone": "+90 533 870 34 77", "pid": "ChIJ_Sw6uInJ3xQR2wk5auYIFOY", "featured": false, "lat": 35.1176153, "lng": 33.9193073}, {"id": "ulas", "cat": "taxi", "n": ["Ulaş Taksi", "Ulaş Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["Gazimağusa’da 7/24 taksi durağı.", "24/7 taxi rank in Famagusta."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 835 20 20", "pid": "ChIJjdH_DsjJ3xQRX2S6VLgxBcQ", "featured": false, "lat": null, "lng": null}, {"id": "gocmen", "cat": "taxi", "n": ["Göçmen Taksi", "Göçmen Taksi"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["7/24 · taksimetre", "24/7 · meter"], "why": ["7/24 açık; yorumlara göre yeni araçlar ve taksimetre kullanılıyor.", "Open 24/7; reviews mention new cars and use of the meter."], "hours": ["7/24 açık", "Open 24/7"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 392 365 00 23", "pid": "ChIJcxEu3c3J3xQRSDyPXH2MDx8", "featured": false, "lat": null, "lng": null}, {"id": "mehmet", "cat": "taxi", "n": ["Mağusa Taksi", "Mağusa Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["İngilizce · turlar", "English spoken · tours"], "why": ["7/24; İngilizce konuşuluyor, ada turları da yapılıyor.", "24/7; English spoken, also runs island tours."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 845 17 45", "pid": "ChIJg2JhTt_J3xQRAQU1HVP2laY", "featured": false, "lat": null, "lng": null}, {"id": "ozan", "cat": "taxi", "n": ["Mağusa Taksi Ozan", "Mağusa Taksi Ozan"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["7/24; temiz araçlar ve güler yüzlü sürücüler.", "24/7; clean cars and friendly drivers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 846 21 02", "pid": "ChIJN_Ho1XHJ3xQR9tVoxp4T4Ks", "featured": false, "lat": null, "lng": null}, {"id": "ercan", "cat": "taxi", "n": ["Magosa Taksi (Ercan)", "Magosa Taksi (Ercan)"], "area": ["Emre Sona Sk.", "Emre Sona Sk."], "tag": ["Havalimanı transferi", "Airport transfers"], "why": ["7/24; Ercan havalimanı transferleri.", "24/7; Ercan airport transfers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Emre Sona Sk., Gazimağusa", "phone": "+90 533 883 27 00", "pid": "ChIJP3C9FzXI3xQRHb8wVkVZEfw", "featured": false, "lat": null, "lng": null}, {"id": "gokhan", "cat": "taxi", "n": ["Mağusa Taksi – Gökhan", "Mağusa Taksi – Gökhan"], "area": ["Gazi Mustafa Kemal Blv.", "Gazi Mustafa Kemal Blv."], "tag": ["Araçta kartla ödeme", "Card payment in car"], "why": ["Araçta POS cihazı var; yorumlara göre taksimetre kullanılıyor.", "Has a card machine in the car; reviews say the meter is used."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Gazi Mustafa Kemal Blv., Gazimağusa", "phone": "+90 539 121 53 05", "pid": "ChIJV7lGCljJ3xQRysyTLNm4RwQ", "featured": false, "lat": null, "lng": null}];
+const S = {
+  tr: {
+    nav: { home: 'Ana sayfa', housing: 'Evler', arrival: 'Geliş', discover: 'Keşfet', transport: 'Ulaşım', help: 'Yardım' },
+    langLabel: 'Dil', helpLabel: 'Yardım ve güvenlik', uni: 'EMU · Gazimağusa',
+    hello: 'Kuzey Kıbrıs’a hoş geldin',
+    helloSub: 'İlk dönemin için gereken her şey, aynı yoldan geçmiş öğrenciler tarafından kontrol edildi.',
+    homeHousingT: 'Doğrulanmış evler çok yakında',
+    homeHousingP: 'EMU çevresindeki daire ve yurtları tek tek yerinde kontrol ediyoruz. İlk haberdar olmak için listeye katıl.',
+    homeHousingBtn: 'Ev listesine katıl',
+    progressT: 'Geliş listen', progress: (a, b) => `${b} adımdan ${a} tanesi tamam`, progressBtn: 'Listeyi aç',
+    weekT: 'Bu hafta Gazimağusa’da', seeAll: 'Tümünü gör',
+    weekCards: [
+      { id: 'fondaco', when: 'Cuma ve cumartesi', what: 'Fondaco’da canlı müzik' },
+      { id: 'legendary', when: 'Her gün 12:00–00:00', what: 'Legendary Sports Bar’da dev ekranda maçlar' },
+      { id: 'bowling', when: 'Arkadaşlarla', what: 'Ice Bowling’de bowling' }
+    ],
+    moveT: 'Ulaşım', moveWhere: 'Bir yere mi gidiyorsun?', moveWhereSub: 'Yürüyüş, taksi ve araba süreleri',
+    moveTaxi: 'Taksi çağır', moveTaxiSub: 'Gazimağusa’da 6 taksi şirketi',
+    tipT: 'Ödeme yapmadan önce', tipP: 'Evi yüz yüze ya da canlı görüntülü aramada görmeden asla depozito gönderme.',
+    tipLink: 'Güvenlik ipuçları ve acil numaralar',
+    hT: 'Doğrulanmış evler çok yakında',
+    hP: 'EMU çevresindeki daire ve yurtları tek tek ziyaret ediyor, fotoğrafların gerçek ve fiyatın doğru olduğunu kontrol ediyoruz. Listeye katıl, ilk doğrulanmış evler yayına girince sana WhatsApp’tan haber verelim.',
+    hTabStudent: 'Ev arıyorum', hTabOwner: 'Ev sahibiyim / yurdum var',
+    fName: 'Adın', fPhone: 'WhatsApp numaran', fType: 'Ne tür bir yer?', fMove: 'Ne zaman taşınmak istiyorsun?', fArea: 'Bölge', fUnits: 'Kaç oda ya da daire?',
+    fOwnerName: 'Adınız', fOwnerPhone: 'WhatsApp numaranız', fOwnerType: 'Ne tür bir yer?',
+    types: ['Paylaşımlı dairede oda', 'Tüm daire', 'Stüdyo', 'Yurt odası'],
+    areas: ['Karakol', 'Sakarya', 'Gülseren', 'Tuzla', 'Diğer'],
+    fSendStudent: 'Listeye katıl', fSendOwner: 'Yerimi listele',
+    fSoon: 'Kayıtlar çok yakında açılıyor. Birkaç gün sonra tekrar bak.',
+    fSent: 'WhatsApp bilgilerinle açıldı. Kaydı tamamlamak için mesajı gönder.',
+    waStudent: (d) => `Merhaba AdaGo! Ev listesine katılmak istiyorum.\nAd: ${d.name}\nWhatsApp: ${d.phone}\nAradığım yer: ${d.type}\nTaşınma: ${d.move}`,
+    waOwner: (d) => `Merhaba AdaGo! Yerimi listelemek istiyorum.\nAd: ${d.name}\nWhatsApp: ${d.phone}\nYer türü: ${d.type}\nBölge: ${d.area}\nOda/daire sayısı: ${d.units}`,
+    checkT: '“Doğrulandı” ne demek?',
+    checks: [
+      ['Yerinde ziyaret ediyoruz', 'Her yer yayına girmeden önce ekibimiz tarafından ziyaret edilir.'],
+      ['Fotoğraflar gerçek', 'Fotoğrafların kiralayacağın yerle aynı olduğunu kontrol ederiz.'],
+      ['Fiyat teyitli', 'Kira, depozito ve faturaları ev sahibiyle teyit ederiz.']
+    ],
+    aT: 'Geliş listesi', aProgress: 'İlerlemen', aRoutesT: 'Buraya gelmenin iki yolu',
+    aRoutesP: 'Türkiye’den Ercan’a direkt uçuşlar var. Larnaka’ya inmek istersen, pasaportun için Kıbrıs Cumhuriyeti vizesi gerekip gerekmediğini önceden kontrol et.',
+    aBefore: 'Yola çıkmadan önce', aWeek: 'İlk haftan', aSaved: 'İşaretlerin bu cihazda saklanır.',
+    items: [
+      ['route', 'before', 'Yolculuk rotanı seç', 'Türkiye’den Ercan’a ya da Larnaka’ya inip geçerek'],
+      ['docs', 'before', 'Belgelerini hazırla', 'Kabul mektubu, kimlik ya da pasaport, fotoğraf'],
+      ['transfer', 'before', 'Havalimanı transferini ayarla', 'Fiyatı yola çıkmadan anlaş'],
+      ['nights', 'before', 'İlk gecelerini ayarla', 'Yurt, doğrulanmış ev ya da kısa konaklama'],
+      ['sim', 'week', 'Yerel hat al', 'Kimliğini ya da pasaportunu yanında götür'],
+      ['permit', 'week', 'Oturma izni başvurunu başlat', 'Belgeleri ve adımları üniversitenin uluslararası ofisine sor'],
+      ['bank', 'week', 'Banka hesabı aç', 'Pasaport, öğrenci belgesi ve adres bilgini götür'],
+      ['bus', 'week', 'Kampüs çevresini öğren', 'Ulaşım sayfasından yürüyüş ve taksi sürelerine bak']
+    ],
+    dT: 'Keşfet', dSub: 'Gazimağusa’da öğrencilerin gittiği yerler',
+    cats: { all: 'Tümü', cafe: 'Kafeler', bar: 'Barlar', act: 'Aktiviteler', sport: 'Spor', taxi: 'Taksi' },
+    catOne: { cafe: 'Kafe', bar: 'Bar', act: 'Aktivite', sport: 'Spor', taxi: 'Taksi' },
+    featured: 'Öne çıkan', count: (n, taxi) => `${n} ${taxi ? 'taksi' : 'yer'}`,
+    source: 'Bilgiler Google Haritalar’dan alındı ve değişmiş olabilir; gitmeden önce kontrol et. “Öne çıkan” yerler AdaGo tarafından öne çıkarılır.',
+    back: 'Geri', why: 'Neden gidilir', about: 'Hakkında', open: 'Açık', addr: 'Adres', phone: 'Telefon',
+    call: 'Ara', wa: 'WhatsApp', maps: 'Google Haritalar’da aç', directions: 'Yol tarifi al',
+    rT: 'Yol tarifi', from: 'Nereden', to: 'Nereye', me: 'Konumun', emu: 'EMU ana kampüs', meBtn: 'Konumum', emuBtn: 'EMU ana kampüs', originLabel: 'Başlangıç noktası',
+    sWait: 'Konumun bulunuyor…', sErr: 'Konumuna ulaşılamadı. Konum iznini aç ya da EMU ana kampüsü seç.',
+    sFar: 'Gazimağusa’dan 50 km’den daha uzaktasın. Denemek için EMU ana kampüsü seç.', useEmu: 'EMU ana kampüsü kullan', retry: 'Tekrar dene',
+    tabs: { all: 'Tümü', taxi: 'Taksi', car: 'Araba', walk: 'Yürüyüş' }, three: '3 seçenek', min: ' dk', arrive: 'Varış ', rec: 'Önerilen', fast: 'En hızlı',
+    taxiEmu: 'Taksi seni EMU ana kapıda alır', taxiMe: 'Taksi seni bulunduğun yerden alır', wait: 'Bekleme yaklaşık 6 dk',
+    ride: 'Yolculuk', drive: 'Arabayla git', walk: 'Yürüyerek git', about2: ' km · yaklaşık ', arriveAt: 'Varış: ',
+    askPrice: 'Fiyatı binmeden önce sor', park: 'Park için birkaç dakika ekle', water: 'Yazın yanına su al',
+    startMaps: 'Google Haritalar’da başlat', callTaxi: 'Taksi çağır',
+    est: 'Süreler normal trafiğe göre tahminidir. Sokak sokak canlı yol tarifi için Google Haritalar’ı kullan.',
+    tT: 'Ulaşım', tSub: 'Herhangi bir yere yol tarifi ve seni alacak taksiler.', tSearch: 'Yer ara', tWhere: 'Nereye gidiyorsun?',
+    tFromEmu: (n) => `EMU’dan taksiyle ${n} dk`, tTaxis: 'Taksiler', tNone: 'Aramana uyan yer yok. Başka bir isim dene.',
+    helpT: 'Yardım ve güvenlik',
+    helpSecs: [
+      ['Ev ve depozito', ['Evi görmeden depozito gönderme.', 'Anladığın bir dilde yazılı sözleşme iste.', 'Her ödeme için makbuz al ve sakla.']],
+      ['Taksi', ['Binmeden önce fiyatı sor.', 'Gece yolculuklarında plakayı bir arkadaşınla paylaş.']],
+      ['Geliş', ['Larnaka üzerinden geleceksen vize durumunu önceden kontrol et.', 'Oturma izni adımlarını üniversitenin uluslararası ofisine sor.']]
+    ],
+    emergencyT: 'Acil numaralar', police: 'Polis', ambulance: 'Ambulans', fire: 'İtfaiye',
+    aboutT: 'AdaGo hakkında',
+    aboutP: 'AdaGo, Gazimağusa’daki öğrenciler için hazırlanan bağımsız bir rehberdir; EMU’nun bir parçası değildir. Mekan bilgileri Google Haritalar’dan alınmıştır.',
+    foot: 'AdaGo · Gazimağusa öğrenci rehberi. Bilgiler değişmiş olabilir; önemli kararlar öncesi kontrol et.'
+  },
+  en: {
+    nav: { home: 'Home', housing: 'Housing', arrival: 'Arrival', discover: 'Discover', transport: 'Transport', help: 'Help' },
+    langLabel: 'Language', helpLabel: 'Help and safety', uni: 'EMU · Famagusta',
+    hello: 'Welcome to North Cyprus',
+    helloSub: 'Everything for your first semester at EMU, checked by students who’ve been there.',
+    homeHousingT: 'Verified places to live, coming soon',
+    homeHousingP: 'We’re checking flats and dorms near EMU in person. Join the list to hear first.',
+    homeHousingBtn: 'Join the housing list',
+    progressT: 'Your arrival checklist', progress: (a, b) => `${a} of ${b} steps done`, progressBtn: 'Open checklist',
+    weekT: 'This week in Famagusta', seeAll: 'See all',
+    weekCards: [
+      { id: 'fondaco', when: 'Friday and Saturday', what: 'Live music at Fondaco' },
+      { id: 'legendary', when: 'Daily 12:00–00:00', what: 'Matches on big screens at Legendary Sports Bar' },
+      { id: 'bowling', when: 'With friends', what: 'Bowling at Ice Bowling' }
+    ],
+    moveT: 'Getting around', moveWhere: 'Going somewhere?', moveWhereSub: 'Walking, taxi and driving times',
+    moveTaxi: 'Call a taxi', moveTaxiSub: '6 taxi companies in Famagusta',
+    tipT: 'Before you pay anything', tipP: 'Never send a deposit until you’ve seen the place in person or on a live video call.',
+    tipLink: 'Safety tips and emergency numbers',
+    hT: 'Verified places to live, coming soon',
+    hP: 'We’re visiting flats and dorms near EMU one by one, checking that the photos are real and the price is right. Join the list and we’ll message you on WhatsApp when the first verified places go up.',
+    hTabStudent: 'I’m looking for a place', hTabOwner: 'I’m a landlord or dorm',
+    fName: 'Your name', fPhone: 'WhatsApp number', fType: 'Type of place', fMove: 'When do you want to move in?', fArea: 'Area', fUnits: 'How many rooms or flats?',
+    fOwnerName: 'Your name', fOwnerPhone: 'WhatsApp number', fOwnerType: 'Type of place',
+    types: ['Room in a shared flat', 'Whole flat', 'Studio', 'Dorm room'],
+    areas: ['Karakol', 'Sakarya', 'Gülseren', 'Tuzla', 'Other'],
+    fSendStudent: 'Join the list', fSendOwner: 'List my place',
+    fSoon: 'Sign-ups open very soon. Check back in a few days.',
+    fSent: 'WhatsApp opened with your details. Send the message to finish signing up.',
+    waStudent: (d) => `Hi AdaGo! I’d like to join the housing list.\nName: ${d.name}\nWhatsApp: ${d.phone}\nLooking for: ${d.type}\nMoving in: ${d.move}`,
+    waOwner: (d) => `Hi AdaGo! I’d like to list my place.\nName: ${d.name}\nWhatsApp: ${d.phone}\nType of place: ${d.type}\nArea: ${d.area}\nRooms or flats: ${d.units}`,
+    checkT: 'What “verified” means',
+    checks: [
+      ['We visit in person', 'Our team visits every place before it goes up.'],
+      ['The photos are real', 'We check the photos match the place you’ll actually rent.'],
+      ['The price is confirmed', 'We confirm the rent, deposit and bills with the owner.']
+    ],
+    aT: 'Arrival checklist', aProgress: 'Your progress', aRoutesT: 'Two ways to get here',
+    aRoutesP: 'There are direct flights from Turkey to Ercan. If you’d rather land in Larnaca, check first whether your passport needs a Republic of Cyprus visa.',
+    aBefore: 'Before you fly', aWeek: 'Your first week', aSaved: 'Your ticks are saved on this device.',
+    items: [
+      ['route', 'before', 'Choose your route', 'Turkey to Ercan, or land in Larnaca and cross'],
+      ['docs', 'before', 'Get your documents ready', 'Acceptance letter, ID or passport, photos'],
+      ['transfer', 'before', 'Book your airport transfer', 'Agree the price before you travel'],
+      ['nights', 'before', 'Arrange your first nights', 'Dorm, verified flat or a short stay'],
+      ['sim', 'week', 'Get a local SIM card', 'Bring your ID or passport to the shop'],
+      ['permit', 'week', 'Start your residence permit', 'Ask the university’s international office for the documents and steps'],
+      ['bank', 'week', 'Open a bank account', 'Bring your passport, student certificate and address'],
+      ['bus', 'week', 'Learn your way around', 'Check walking and taxi times on the Transport page']
+    ],
+    dT: 'Discover', dSub: 'Places students go in Famagusta',
+    cats: { all: 'All', cafe: 'Cafés', bar: 'Bars', act: 'Activities', sport: 'Sport', taxi: 'Taxi' },
+    catOne: { cafe: 'Café', bar: 'Bar', act: 'Activity', sport: 'Sport', taxi: 'Taxi' },
+    featured: 'Featured', count: (n, taxi) => `${n} ${taxi ? 'taxis' : 'places'}`,
+    source: 'Details come from Google Maps and may have changed, so check before you go. “Featured” places are promoted by AdaGo.',
+    back: 'Back', why: 'Why go', about: 'About', open: 'Open', addr: 'Address', phone: 'Phone',
+    call: 'Call', wa: 'WhatsApp', maps: 'Open in Google Maps', directions: 'Get directions',
+    rT: 'Directions', from: 'From', to: 'To', me: 'Your location', emu: 'EMU main campus', meBtn: 'My location', emuBtn: 'EMU main campus', originLabel: 'Starting point',
+    sWait: 'Finding your location…', sErr: 'We couldn’t get your location. Allow location access, or choose EMU main campus.',
+    sFar: 'You’re more than 50 km from Famagusta. Choose EMU main campus to try it.', useEmu: 'Use EMU main campus', retry: 'Try again',
+    tabs: { all: 'All', taxi: 'Taxi', car: 'Car', walk: 'Walking' }, three: '3 options', min: ' min', arrive: 'Arrive ', rec: 'Recommended', fast: 'Fastest',
+    taxiEmu: 'Taxi picks you up at the EMU main gate', taxiMe: 'Taxi picks you up where you are', wait: 'About a 6 min wait',
+    ride: 'Ride', drive: 'Drive', walk: 'Walk', about2: ' km · about ', arriveAt: 'Arrive at ',
+    askPrice: 'Ask the price before you get in', park: 'Allow a few minutes to park', water: 'Take water in summer',
+    startMaps: 'Start in Google Maps', callTaxi: 'Call a taxi',
+    est: 'Times are estimates in normal traffic. For live, street-by-street directions, use Google Maps.',
+    tT: 'Getting around', tSub: 'Directions to any place, and taxis that will pick you up.', tSearch: 'Search places', tWhere: 'Where are you going?',
+    tFromEmu: (n) => `${n} min by taxi from EMU`, tTaxis: 'Taxis', tNone: 'No places match your search. Try another name.',
+    helpT: 'Help and safety',
+    helpSecs: [
+      ['Housing and deposits', ['Don’t send a deposit before you’ve seen the place.', 'Ask for a written contract in a language you understand.', 'Get a receipt for every payment and keep it.']],
+      ['Taxis', ['Ask the price before you get in.', 'On night rides, share the plate number with a friend.']],
+      ['Arriving', ['If you’re coming via Larnaca, check your visa situation first.', 'Ask the university’s international office about residence permit steps.']]
+    ],
+    emergencyT: 'Emergency numbers', police: 'Police', ambulance: 'Ambulance', fire: 'Fire',
+    aboutT: 'About AdaGo',
+    aboutP: 'AdaGo is an independent guide for students in Famagusta. It isn’t part of EMU. Place details come from Google Maps.',
+    foot: 'AdaGo · Famagusta student guide. Details can change, so check before making important decisions.'
+  }
+};
+
+const CONTACT_WHATSAPP = ''; // the AdaGo team's WhatsApp number in international format, digits only, e.g. 905331234567
+const EMU = { lat: 35.1423793, lng: 33.9116479 };
+const VIEWS = ['home', 'housing', 'arrival', 'discover', 'transport'];
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
+};
+
+const st = {
+  lang: store.get('landed-lang', 'tr') === 'en' ? 'en' : 'tr',
+  view: 'home', place: null, cat: 'all', q: '',
+  origin: 'me', loc: null, rtab: 'all', ropen: null,
+  htab: 'student', sent: false,
+  ticks: store.get('landed-arrival', {})
+};
+
+const T = () => S[st.lang];
+const L = () => (st.lang === 'tr' ? 0 : 1);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const byId = (id) => PLACES.find((p) => p.id === id);
+const nm = (p) => p.n[L()];
+const digits = (s) => String(s || '').replace(/\D/g, '');
+
+/* icons */
+const I = {
+  pin: (s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>`,
+  home: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>',
+  building: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18"/><path d="M8 7h4"/><path d="M8 11h4"/><path d="M8 15h4"/></svg>',
+  list: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h12"/><path d="M9 12h12"/><path d="M9 18h12"/><path d="m3 6 1.5 1.5L7 5"/><path d="m3 12 1.5 1.5L7 11"/><path d="M4 18h.01"/></svg>',
+  compass: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>',
+  bus: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 10h16"/><path d="M8 17v3"/><path d="M16 17v3"/></svg>',
+  chev: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>',
+  back: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>',
+  phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+  chat: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>',
+  nav: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 19-9-9 19-2-8-8-2z"/></svg>',
+  map: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg>',
+  walk: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m9 20 3-6 3 3v4"/><path d="M7 12l3-4 4 2 3 3"/></svg>',
+  car: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
+  logo: "<svg width=\"34\" height=\"34\" viewBox=\"0 0 120 120\" aria-hidden=\"true\"><path d=\"M60 112C60 112 96 79 96 50A36 36 0 0 0 24 50C24 79 60 112 60 112Z\" style=\"fill:var(--pin)\"/><path d=\"M31.0 51.5 L32.5 53.4 L34.2 61.0 L39.2 64.4 L44.7 65.0 L50.0 67.4 L51.2 64.7 L58.0 62.8 L64.7 60.4 L65.2 56.7 L71.2 55.2 L76.2 54.9 L73.5 52.4 L72.7 48.2 L75.5 42.7 L84.2 37.2 L89.0 32.6 L84.7 34.7 L76.7 39.3 L70.5 41.7 L61.7 43.6 L57.2 43.6 L47.5 41.7 L47.2 46.3 L44.2 48.8 L39.2 48.5 L35.5 52.1Z\" fill=\"#FFFFFF\" stroke=\"#FFFFFF\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>",
+  waves: '<svg class="waves" viewBox="0 0 300 200" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" aria-hidden="true"><path d="M10 60c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/><path d="M10 110c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/><path d="M10 160c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/></svg>'
+};
+
+/* routing: plain #tokens like #discover, #place-tatli, #route-tatli */
+function fromHash() {
+  const h = (location.hash || '').replace(/^#/, '');
+  if (VIEWS.includes(h) || h === 'help') return { view: h, place: null };
+  const m = h.match(/^(place|route)-([a-z0-9]+)$/);
+  if (m && byId(m[2])) return { view: m[1], place: m[2] };
+  return { view: 'home', place: null };
+}
+function go(view, place) {
+  st.view = view; st.place = place || null;
+  if (view === 'route') { st.rtab = 'all'; st.ropen = null; if (st.origin === 'me' && !(st.loc && typeof st.loc === 'object')) locate(); }
+  render();
+  window.scrollTo(0, 0);
+  const app = document.getElementById('app'); if (app) app.focus({ preventScroll: true });
+}
+
+/* geolocation */
+function locate() {
+  if (!('geolocation' in navigator)) { st.loc = 'err'; render(); return; }
+  st.loc = 'wait';
+  navigator.geolocation.getCurrentPosition(
+    (p) => { st.loc = { lat: p.coords.latitude, lng: p.coords.longitude }; if (st.view === 'route') render(); },
+    () => { st.loc = 'err'; if (st.view === 'route') render(); },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
+  );
+}
+
+/* distance + estimates */
+function hav(a, b) {
+  const r = (v) => v * Math.PI / 180, dLa = r(b.lat - a.lat), dLo = r(b.lng - a.lng);
+  const h = Math.sin(dLa / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLo / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
+function est(from, p) {
+  const d = hav(from, p);
+  const wk = Math.max(d * 1.2, 0.2), dk = Math.max(d * 1.28, 0.5);
+  return { wk, dk, wm: Math.max(3, Math.round(wk / 4.8 * 60)), dm: Math.max(3, Math.round(dk / 24 * 60)) };
+}
+const kmS = (v) => { const s = (Math.round(v * 10) / 10).toFixed(1); return st.lang === 'tr' ? s.replace('.', ',') : s; };
+const clock = (m) => { const d = new Date(Date.now() + m * 60000); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
+function gmapsDir(p, mode) {
+  let u = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(p.n[0] + ', Gazimağusa') + '&destination_place_id=' + p.pid + '&travelmode=' + mode;
+  if (st.origin === 'emu') u += '&origin=' + EMU.lat + ',' + EMU.lng;
+  return u;
+}
+const gmapsPlace = (p) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.n[0] + ', Gazimağusa') + '&query_place_id=' + p.pid;
+
+/* shared bits */
+const catMark = (p) => `<span class="mark t-${p.cat}" aria-hidden="true">${esc(nm(p).replace(/^[^A-Za-zÇĞİÖŞÜçğıöşü0-9]+/, '').charAt(0))}</span>`;
+function placeCard(p) {
+  const t = T();
+  return `<button class="place" data-go="place:${p.id}">
+    ${catMark(p)}
+    <span class="body">
+      <span class="name"><span>${esc(nm(p))}</span>${p.featured ? `<span class="pill dark">${esc(t.featured)}</span>` : ''}</span>
+      <span class="meta">${esc(t.catOne[p.cat])} · ${esc(p.area[L()])}</span>
+      <span class="meta">${esc(p.hours[L()])}</span>
+      <span><span class="pill">${esc(p.tag[L()])}</span></span>
+    </span>
+  </button>`;
+}
+function backBtn(target) {
+  return `<button class="link-btn" data-go="${target}">${I.back}${esc(T().back)}</button>`;
+}
+
+/* views */
+function vHome() {
+  const t = T(), done = t.items.filter((i) => st.ticks[i[0]]).length, total = t.items.length;
+  const week = t.weekCards.map((w) => `<button class="week" data-go="place:${w.id}">
+      <span class="small">${esc(w.when)}</span><span class="when">${esc(w.what)}</span></button>`).join('');
+  return `<div class="view">
+    <section class="hero">
+      ${I.waves}
+      <span class="uni">${I.pin(16)}${esc(t.uni)}</span>
+      <h1>${esc(t.hello)}</h1>
+      <p>${esc(t.helloSub)}</p>
+    </section>
+    <div class="grid2">
+      <section class="card pad stack" aria-labelledby="hh">
+        <h2 id="hh">${esc(t.homeHousingT)}</h2>
+        <p class="lede" style="font-size:16px">${esc(t.homeHousingP)}</p>
+        <div><button class="btn primary" data-go="housing">${I.building}${esc(t.homeHousingBtn)}</button></div>
+      </section>
+      <section class="card pad stack" aria-labelledby="hp">
+        <div class="sec-head"><h2 id="hp">${esc(t.progressT)}</h2><span class="small">${esc(t.progress(done, total))}</span></div>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${Math.round(done / total * 100)}%"></i></div>
+        <div><button class="btn" data-go="arrival">${I.list}${esc(t.progressBtn)}</button></div>
+      </section>
+    </div>
+    <section class="sec" aria-labelledby="hw">
+      <div class="sec-head"><h2 id="hw">${esc(t.weekT)}</h2><button class="link-btn" data-go="discover">${esc(t.seeAll)}</button></div>
+      <div class="rail">${week}</div>
+    </section>
+    <div class="grid2">
+      <section class="sec" aria-labelledby="hm">
+        <h2 id="hm">${esc(t.moveT)}</h2>
+        <div class="card" style="overflow:hidden">
+          <button class="row" data-go="transport"><span class="ico">${I.nav}</span><span class="txt"><span class="t">${esc(t.moveWhere)}</span><span class="s">${esc(t.moveWhereSub)}</span></span><span class="chev">${I.chev}</span></button>
+          <button class="row" data-go="transport" data-anchor="taxis"><span class="ico" style="background:var(--sun-tint);color:var(--sun-ink)">${I.phone}</span><span class="txt"><span class="t">${esc(t.moveTaxi)}</span><span class="s">${esc(t.moveTaxiSub)}</span></span><span class="chev">${I.chev}</span></button>
+        </div>
+      </section>
+      <section class="note" aria-labelledby="ht">
+        <h3 id="ht" style="color:var(--clay-ink)">${esc(t.tipT)}</h3>
+        <p>${esc(t.tipP)}</p>
+        <div><button class="link-btn" style="color:var(--clay-ink)" data-go="help">${esc(t.tipLink)}</button></div>
+      </section>
+    </div>
+  </div>`;
+}
+
+function vHousing() {
+  const t = T(), student = st.htab === 'student';
+  const opts = (arr) => arr.map((a) => `<option>${esc(a)}</option>`).join('');
+  const soon = !CONTACT_WHATSAPP;
+  const formStudent = `<form data-form="student" class="card pad">
+      <label class="f">${esc(t.fName)}<input name="name" autocomplete="name" required></label>
+      <label class="f">${esc(t.fPhone)}<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+90 5XX XXX XX XX"></label>
+      <label class="f">${esc(t.fType)}<select name="type">${opts(t.types)}</select></label>
+      <label class="f">${esc(t.fMove)}<input name="move" type="month"></label>
+      ${soon ? `<p class="ok">${esc(t.fSoon)}</p>` : ''}
+      <button class="btn primary" type="submit" ${soon ? 'disabled' : ''}>${I.chat}${esc(t.fSendStudent)}</button>
+    </form>`;
+  const formOwner = `<form data-form="owner" class="card pad">
+      <label class="f">${esc(t.fOwnerName)}<input name="name" autocomplete="name" required></label>
+      <label class="f">${esc(t.fOwnerPhone)}<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+90 5XX XXX XX XX"></label>
+      <label class="f">${esc(t.fOwnerType)}<select name="type">${opts(t.types)}</select></label>
+      <label class="f">${esc(t.fArea)}<select name="area">${opts(t.areas)}</select></label>
+      <label class="f">${esc(t.fUnits)}<input name="units" type="number" min="1" inputmode="numeric"></label>
+      ${soon ? `<p class="ok">${esc(t.fSoon)}</p>` : ''}
+      <button class="btn primary" type="submit" ${soon ? 'disabled' : ''}>${I.chat}${esc(t.fSendOwner)}</button>
+    </form>`;
+  const checks = t.checks.map((c) => `<div class="stack" style="gap:2px"><h3>${esc(c[0])}</h3><p class="small" style="margin:0;font-size:15px">${esc(c[1])}</p></div>`).join('');
+  return `<div class="view">
+    <div class="view-head"><h1>${esc(t.hT)}</h1><p class="lede">${esc(t.hP)}</p></div>
+    <div class="grid2">
+      <section class="stack" aria-label="${esc(t.hT)}">
+        <div class="chips" role="group">
+          <button class="chip" aria-pressed="${student}" data-act="htab:student">${esc(t.hTabStudent)}</button>
+          <button class="chip" aria-pressed="${!student}" data-act="htab:owner">${esc(t.hTabOwner)}</button>
+        </div>
+        ${st.sent ? `<p class="ok" role="status">${esc(t.fSent)}</p>` : ''}
+        ${student ? formStudent : formOwner}
+      </section>
+      <section class="card pad stack" aria-labelledby="vc"><h2 id="vc">${esc(t.checkT)}</h2>${checks}</section>
+    </div>
+    <section class="note"><h3 style="color:var(--clay-ink)">${esc(t.tipT)}</h3><p>${esc(t.tipP)}</p></section>
+  </div>`;
+}
+
+function vArrival() {
+  const t = T(), done = t.items.filter((i) => st.ticks[i[0]]).length, total = t.items.length;
+  const list = (sec) => t.items.filter((i) => i[1] === sec).map((i) => `<label class="check ${st.ticks[i[0]] ? 'done' : ''}">
+      <input type="checkbox" data-tick="${i[0]}" ${st.ticks[i[0]] ? 'checked' : ''}>
+      <span><span class="t">${esc(i[2])}</span><br><span class="s">${esc(i[3])}</span></span></label>`).join('');
+  return `<div class="view narrow">
+    <div class="view-head"><h1>${esc(t.aT)}</h1><span class="uni">${I.pin(16)}${esc(t.uni)}</span></div>
+    <section class="card pad stack" aria-labelledby="ap">
+      <div class="sec-head"><h2 id="ap" style="font-size:18px">${esc(t.aProgress)}</h2><span class="small">${esc(t.progress(done, total))}</span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${Math.round(done / total * 100)}%"></i></div>
+    </section>
+    <section class="why"><h3>${esc(t.aRoutesT)}</h3><p>${esc(t.aRoutesP)}</p></section>
+    <section class="sec" aria-labelledby="ab"><h2 id="ab">${esc(t.aBefore)}</h2><div class="card">${list('before')}</div></section>
+    <section class="sec" aria-labelledby="aw"><h2 id="aw">${esc(t.aWeek)}</h2><div class="card">${list('week')}</div></section>
+    <p class="small">${esc(t.aSaved)}</p>
+  </div>`;
+}
+
+function vDiscover() {
+  const t = T(), cat = st.cat;
+  const chips = Object.keys(t.cats).map((k) => `<button class="chip" aria-pressed="${cat === k}" data-act="cat:${k}">${esc(t.cats[k])}</button>`).join('');
+  const showFeat = cat === 'all' || cat === 'cafe';
+  const list = PLACES.filter((p) => (cat === 'all' ? p.cat !== 'taxi' : p.cat === cat)).filter((p) => !(showFeat && p.id === 'tatli'));
+  const th = byId('tatli');
+  const feat = showFeat ? `<button class="featured" data-go="place:tatli">
+      <span class="pill">${esc(t.featured)}</span>
+      <span class="fname">${esc(nm(th))}</span>
+      <span class="fmeta">${esc(t.catOne.cafe)} · ${esc(th.area[L()])} · ${esc(th.hours[L()])}</span>
+      <span class="fmeta">${esc(th.why[L()])}</span>
+    </button>` : '';
+  const cards = cat === 'taxi' ? list.map(taxiCard).join('') : list.map(placeCard).join('');
+  return `<div class="view">
+    <div class="view-head"><h1>${esc(t.dT)}</h1><p class="lede">${esc(t.dSub)}</p></div>
+    <div class="chips" role="group" aria-label="${esc(t.dT)}">${chips}</div>
+    ${feat}
+    <section class="sec" aria-label="${esc(t.cats[cat])}">
+      <p class="small" style="margin:0">${esc(t.count(list.length + (showFeat ? 1 : 0), cat === 'taxi'))}</p>
+      <div class="places">${cards}</div>
+    </section>
+    <p class="small">${esc(t.source)}</p>
+  </div>`;
+}
+
+function taxiCard(p) {
+  const t = T(), d = digits(p.phone), mobile = p.phone.startsWith('+90 5');
+  return `<article class="card pad stack" style="gap:8px">
+    <div class="sec-head"><h3>${esc(nm(p))}</h3><span class="pill sun">${esc(p.tag[L()])}</span></div>
+    <span class="small" style="font-size:14px">${esc(p.area[L()])} · ${esc(p.phone)}</span>
+    <span style="font-size:15px;color:var(--ink-2)">${esc(p.why[L()])}</span>
+    <div class="btns">
+      <a class="btn sun" href="tel:+${d}">${I.phone}${esc(t.call)}</a>
+      ${mobile ? `<a class="btn" href="https://wa.me/${d}" target="_blank" rel="noopener">${I.chat}${esc(t.wa)}</a>` : ''}
+    </div>
+  </article>`;
+}
+
+function vPlace() {
+  const t = T(), p = byId(st.place); if (!p) return vDiscover();
+  const d = digits(p.phone), mobile = p.phone.startsWith('+90 5');
+  const facts = [[t.open, p.hours[L()]], [t.addr, p.address]].concat(p.phone ? [[t.phone, p.phone]] : []);
+  return `<div class="view narrow">
+    <div>${backBtn('discover')}</div>
+    <div class="view-head" style="padding-top:0">
+      <span class="pill ${p.cat === 'taxi' ? 'sun' : ''}" style="align-self:flex-start">${esc(t.catOne[p.cat])}${p.featured ? ' · ' + esc(t.featured) : ''}</span>
+      <h1>${esc(nm(p))}</h1>
+      <p class="lede">${esc(p.area[L()])}</p>
+    </div>
+    <section class="why"><h3>${esc(p.cat === 'taxi' ? t.about : t.why)}</h3><p>${esc(p.why[L()])}</p></section>
+    <dl class="card facts" style="margin:0">${facts.map((f) => `<div class="fact"><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join('')}</dl>
+    ${p.lat ? `<button class="btn primary" data-go="route:${p.id}">${I.nav}${esc(t.directions)}</button>` : ''}
+    <div class="btns">
+      ${p.phone ? `<a class="btn" href="tel:+${d}">${I.phone}${esc(t.call)}</a>` : ''}
+      ${mobile ? `<a class="btn" href="https://wa.me/${d}" target="_blank" rel="noopener">${I.chat}${esc(t.wa)}</a>` : ''}
+      <a class="btn" href="${gmapsPlace(p)}" target="_blank" rel="noopener">${I.map}${esc(t.maps)}</a>
+    </div>
+    <p class="small">${esc(t.source)}</p>
+  </div>`;
+}
+
+function plan(p) {
+  let from = null, status = '';
+  if (st.origin === 'emu') from = EMU;
+  else if (st.loc && typeof st.loc === 'object') from = st.loc;
+  else status = st.loc === 'err' ? 'err' : 'wait';
+  if (from && hav(from, p) > 50) { from = null; status = 'far'; }
+  if (!from) return { ready: false, status };
+  const e = est(from, p);
+  const opts = [
+    { id: 'taxi', mins: e.dm + 6, km: e.dk },
+    { id: 'car', mins: e.dm, km: e.dk },
+    { id: 'walk', mins: e.wm, km: e.wk }
+  ];
+  const rec = e.wm <= 15 ? 'walk' : 'taxi';
+  let fast = 'walk'; for (const id of ['walk', 'car', 'taxi']) { if (opts.find((o) => o.id === id).mins < opts.find((o) => o.id === fast).mins) fast = id; }
+  const rank = (o) => (o.id === rec ? 0 : o.id === fast ? 1 : 2 + ['taxi', 'car', 'walk'].indexOf(o.id));
+  return { ready: true, e, opts: opts.slice().sort((a, b) => rank(a) - rank(b)), rec, fast };
+}
+
+function vRoute() {
+  const t = T(), p = byId(st.place); if (!p || !p.lat) return vDiscover();
+  const pl = plan(p);
+  const origins = [['me', t.meBtn], ['emu', t.emuBtn]].map((o) => `<button class="chip" style="flex:1" aria-pressed="${st.origin === o[0]}" data-act="origin:${o[0]}">${esc(o[1])}</button>`).join('');
+  let body = '';
+  if (!pl.ready) {
+    const msg = pl.status === 'err' ? t.sErr : pl.status === 'far' ? t.sFar : t.sWait;
+    body = `<div class="card pad stack"><p role="status" style="margin:0">${esc(msg)}</p>
+      ${pl.status !== 'wait' ? `<div class="btns"><button class="btn primary" data-act="origin:emu">${esc(t.useEmu)}</button>${pl.status === 'err' ? `<button class="btn" data-act="retry">${esc(t.retry)}</button>` : ''}</div>` : ''}</div>`;
+  } else {
+    const e = pl.e;
+    const tabs = ['all', 'taxi', 'car', 'walk'].map((k) => {
+      const o = pl.opts.find((q) => q.id === k);
+      return `<button class="chip" aria-pressed="${st.rtab === k}" data-act="rtab:${k}">${esc(t.tabs[k])} <span style="font-weight:500">${esc(o ? o.mins + t.min : t.three)}</span></button>`;
+    }).join('');
+    const vis = st.rtab === 'all' ? pl.opts : pl.opts.filter((o) => o.id === st.rtab);
+    const openId = st.ropen && vis.some((o) => o.id === st.ropen) ? st.ropen : vis[0].id;
+    const stepsFor = (id) => {
+      const arrive = { title: t.arriveAt + nm(p), sub: p.address, x: '' };
+      if (id === 'taxi') return [{ title: st.origin === 'emu' ? t.taxiEmu : t.taxiMe, sub: t.wait, x: '' }, { title: t.ride, sub: kmS(e.dk) + t.about2 + e.dm + t.min, x: t.askPrice }, arrive];
+      if (id === 'car') return [{ title: t.drive, sub: kmS(e.dk) + t.about2 + e.dm + t.min, x: t.park }, arrive];
+      return [{ title: t.walk, sub: kmS(e.wk) + t.about2 + e.wm + t.min, x: e.wm > 20 ? t.water : '' }, arrive];
+    };
+    const dotStyle = { taxi: 'background:var(--sun);color:#12212E', car: 'background:var(--chip-on);color:var(--chip-on-ink)', walk: 'background:var(--surface-2);color:var(--ink-2)' };
+    const opts = vis.map((o) => {
+      const open = o.id === openId;
+      const tags = (o.id === pl.rec ? `<span class="pill">${esc(t.rec)}</span>` : '') + (o.id === pl.fast ? `<span class="pill dark">${esc(t.fast)}</span>` : '');
+      const icon = o.id === 'walk' ? I.walk : I.car;
+      const steps = open ? `<ol class="steps">${stepsFor(o.id).map((s) => `<li><span class="sd" style="${dotStyle[o.id]}">${icon}</span><span><span class="st">${esc(s.title)}</span><br><span class="ss">${esc(s.sub)}</span>${s.x ? `<br><span class="sx">${esc(s.x)}</span>` : ''}</span></li>`).join('')}</ol>
+        <div class="opt-foot btns">
+          ${o.id === 'taxi' ? `<button class="btn sun" data-go="transport" data-anchor="taxis">${I.phone}${esc(t.callTaxi)}</button>` : ''}
+          <a class="btn" href="${gmapsDir(p, o.id === 'walk' ? 'walking' : 'driving')}" target="_blank" rel="noopener">${I.map}${esc(t.startMaps)}</a>
+        </div>` : '';
+      return `<div class="opt ${open ? 'open' : ''}">
+        <button class="opt-head" aria-expanded="${open}" data-act="ropen:${o.id}">
+          <span class="opt-top"><span class="opt-tags"><span class="opt-time">${o.mins}${esc(t.min)}</span>${tags}</span><span class="small" style="font-size:14px">${esc(t.arrive + clock(o.mins))}</span></span>
+          <span><span class="mode ${o.id}">${icon}${esc(t.tabs[o.id])} · ${esc(kmS(o.km))} km</span></span>
+        </button>${steps}</div>`;
+    }).join('');
+    body = `<div class="chips" role="tablist">${tabs}</div><div class="stack">${opts}</div><p class="small">${esc(t.est)}</p>`;
+  }
+  return `<div class="view narrow">
+    <div>${backBtn('place:' + p.id)}</div>
+    <div class="view-head" style="padding-top:0"><h1>${esc(t.rT)}</h1></div>
+    <section class="card pad stack">
+      <div class="fromto">
+        <div class="ft"><span class="dot" aria-hidden="true"></span><span class="k">${esc(t.from)}</span><span class="v">${esc(st.origin === 'emu' ? t.emu : t.me)}</span></div>
+        <div class="ft"><span style="color:var(--clay);display:flex">${I.pin(14)}</span><span class="k">${esc(t.to)}</span><span class="v">${esc(nm(p))}</span></div>
+      </div>
+      <div style="display:flex;gap:8px" role="group" aria-label="${esc(t.originLabel)}">${origins}</div>
+    </section>
+    ${body}
+  </div>`;
+}
+
+function vTransport() {
+  const t = T();
+  const q = st.q.trim().toLocaleLowerCase(st.lang);
+  return `<div class="view">
+    <div class="view-head"><h1>${esc(t.tT)}</h1><p class="lede">${esc(t.tSub)}</p></div>
+    <section class="sec" aria-labelledby="tw">
+      <h2 id="tw">${esc(t.tWhere)}</h2>
+      <label class="f"><span class="sr">${esc(t.tSearch)}</span><input id="tq" type="search" value="${esc(st.q)}" placeholder="${esc(t.tSearch)}" autocomplete="off"></label>
+      <div class="card" style="overflow:hidden" id="tlist">${transportList(q)}</div>
+    </section>
+    <section class="sec" id="taxis" aria-labelledby="tx">
+      <h2 id="tx">${esc(t.tTaxis)}</h2>
+      <div class="places">${PLACES.filter((p) => p.cat === 'taxi').map(taxiCard).join('')}</div>
+    </section>
+    <p class="small">${esc(t.est)}</p>
+  </div>`;
+}
+function transportList(q) {
+  const t = T();
+  const list = PLACES.filter((p) => p.lat && (!q || p.n.some((n) => n.toLocaleLowerCase(st.lang).includes(q)) || p.area[L()].toLocaleLowerCase(st.lang).includes(q)));
+  if (!list.length) return `<p class="pad" style="margin:0">${esc(t.tNone)}</p>`;
+  return list.map((p) => `<button class="row" data-go="route:${p.id}"><span class="ico t-${p.cat}" style="color:var(--ink-2)">${esc(nm(p).charAt(0))}</span><span class="txt"><span class="t">${esc(nm(p))}</span><span class="s">${esc(t.catOne[p.cat])} · ${esc(t.tFromEmu(est(EMU, p).dm + 6))}</span></span><span class="chev">${I.chev}</span></button>`).join('');
+}
+
+function vHelp() {
+  const t = T();
+  const secs = t.helpSecs.map((s) => `<section class="card pad stack"><h2 style="font-size:19px">${esc(s[0])}</h2><ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">${s[1].map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`).join('');
+  const em = [[t.police, '155'], [t.ambulance, '112'], [t.fire, '199']];
+  return `<div class="view narrow">
+    <div class="view-head"><h1>${esc(t.helpT)}</h1></div>
+    ${secs}
+    <section class="note" aria-labelledby="em"><h2 id="em" style="font-size:19px;color:var(--clay-ink)">${esc(t.emergencyT)}</h2>
+      <div class="btns">${em.map((e) => `<a class="btn" href="tel:${e[1]}">${I.phone}${esc(e[0])} ${e[1]}</a>`).join('')}</div></section>
+    <section class="stack"><h2 style="font-size:19px">${esc(t.aboutT)}</h2><p class="lede" style="font-size:16px">${esc(t.aboutP)}</p></section>
+  </div>`;
+}
+
+/* chrome */
+function renderChrome() {
+  const t = T(), cur = st.view === 'place' || st.view === 'route' ? 'discover' : st.view;
+  const navBtn = (v, icon) => `<button data-go="${v}" ${cur === v ? 'aria-current="page"' : ''}>${icon}${esc(t.nav[v])}</button>`;
+  document.getElementById('top').innerHTML = `<div class="top-in">
+    <button class="logo" data-go="home" aria-label="AdaGo, ${esc(t.nav.home)}">${I.logo}<span>AdaGo</span></button>
+    <nav class="top-nav" aria-label="${esc(t.nav.home)}">${VIEWS.map((v) => `<button data-go="${v}" ${cur === v ? 'aria-current="page"' : ''}>${esc(t.nav[v])}</button>`).join('')}</nav>
+    <div class="top-tools">
+      <button class="icon-btn" data-go="help" aria-label="${esc(t.helpLabel)}" ${cur === 'help' ? 'aria-current="page"' : ''}>?</button>
+      <div class="seg" role="group" aria-label="${esc(t.langLabel)}">
+        <button aria-pressed="${st.lang === 'tr'}" data-act="lang:tr" lang="tr">TR</button>
+        <button aria-pressed="${st.lang === 'en'}" data-act="lang:en" lang="en">EN</button>
+      </div>
+    </div></div>`;
+  document.getElementById('tabs').innerHTML = navBtn('home', I.home) + navBtn('housing', I.building) + navBtn('arrival', I.list) + navBtn('discover', I.compass) + navBtn('transport', I.bus);
+  document.getElementById('tabs').setAttribute('aria-label', t.nav.home);
+  document.getElementById('foot').innerHTML = `<p>${esc(t.foot)}</p>`;
+  document.documentElement.lang = st.lang;
+}
+
+function render() {
+  renderChrome();
+  const v = { home: vHome, housing: vHousing, arrival: vArrival, discover: vDiscover, place: vPlace, route: vRoute, transport: vTransport, help: vHelp }[st.view] || vHome;
+  document.getElementById('app').innerHTML = v();
+  document.title = 'AdaGo – ' + (st.view === 'place' || st.view === 'route' ? nm(byId(st.place)) : (T().nav[st.view] || T().nav.home));
+}
+
+/* events */
+document.addEventListener('click', (e) => {
+  const g = e.target.closest('[data-go]');
+  if (g) {
+    e.preventDefault();
+    const [view, id] = g.getAttribute('data-go').split(':');
+    go(view, id);
+    const anchor = g.getAttribute('data-anchor');
+    if (anchor) { const el = document.getElementById(anchor); if (el) el.scrollIntoView({ block: 'start' }); }
+    return;
+  }
+  const a = e.target.closest('[data-act]');
+  if (!a) return;
+  const [act, val] = a.getAttribute('data-act').split(':');
+  if (act === 'lang') { st.lang = val; store.set('landed-lang', val); render(); }
+  else if (act === 'cat') { st.cat = val; render(); }
+  else if (act === 'htab') { st.htab = val; st.sent = false; render(); }
+  else if (act === 'origin') { st.origin = val; st.ropen = null; if (val === 'me' && !(st.loc && typeof st.loc === 'object')) locate(); render(); }
+  else if (act === 'retry') { locate(); render(); }
+  else if (act === 'rtab') { st.rtab = val; st.ropen = null; render(); }
+  else if (act === 'ropen') { st.ropen = val; render(); }
+});
+document.addEventListener('change', (e) => {
+  const k = e.target.getAttribute && e.target.getAttribute('data-tick');
+  if (!k) return;
+  st.ticks[k] = e.target.checked; store.set('landed-arrival', st.ticks); render();
+  const el = document.querySelector(`[data-tick="${k}"]`); if (el) el.focus();
+});
+document.addEventListener('input', (e) => {
+  if (e.target.id !== 'tq') return;
+  st.q = e.target.value;
+  document.getElementById('tlist').innerHTML = transportList(st.q.trim().toLocaleLowerCase(st.lang));
+});
+document.addEventListener('submit', (e) => {
+  const f = e.target.closest('form[data-form]');
+  if (!f) return;
+  e.preventDefault();
+  if (!CONTACT_WHATSAPP) return;
+  const d = Object.fromEntries(new FormData(f).entries());
+  const text = f.getAttribute('data-form') === 'owner' ? T().waOwner(d) : T().waStudent(d);
+  window.open('https://wa.me/' + CONTACT_WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  st.sent = true; render();
+});
+window.addEventListener('scroll', () => { document.getElementById('top').classList.toggle('scrolled', window.scrollY > 4); }, { passive: true });
+window.addEventListener('hashchange', () => { const h = fromHash(); go(h.view, h.place); });
+
+const start = fromHash();
+st.view = start.view; st.place = start.place;
+if (st.view === 'route' && st.origin === 'me') locate();
+render();
+
+</script>
+</body>
+</html>
