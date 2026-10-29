@@ -19,6 +19,8 @@
   --line-2: #CFD8DF;
   --sea: #0A6C86;
   --pin: #0A6C86;
+  --feat: #7FD0E3;
+  --feat-ink: #12212E;
   --sea-ink: #0A5468;
   --sea-tint: #E3F1F5;
   --on-sea: #FFFFFF;
@@ -108,9 +110,11 @@ h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
 .btn[disabled] { opacity: .55; cursor: not-allowed; }
 .btns { display: flex; flex-wrap: wrap; gap: 8px; }
 .btns > * { flex: 1 1 150px; }
+.btns.tight > * { flex: 1 1 70px; padding: 0 10px; }
 .pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--sea-tint); color: var(--sea-ink); }
 .pill.dark { background: var(--chip-on); color: var(--chip-on-ink); }
 .pill.sun { background: var(--sun-tint); color: var(--sun-ink); }
+.pill.feat { background: var(--feat); color: var(--feat-ink); }
 .chips { display: flex; gap: 8px; overflow-x: auto; margin: 0 -20px; padding: 2px 20px 6px; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
 .chip { flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; }
@@ -132,7 +136,7 @@ h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
 .row .t { font-weight: 600; }
 .row .s { font-size: 14px; color: var(--muted); }
 .row .chev { color: var(--muted); flex-shrink: 0; }
-.rail { display: flex; gap: 12px; overflow-x: auto; margin: 0 -20px; padding: 2px 20px 8px; scroll-snap-type: x mandatory; }
+.rail { display: flex; gap: 12px; overflow-x: auto; margin: 0 -20px; padding: 2px 20px 8px; scroll-snap-type: x mandatory; scroll-padding: 0 20px; }
 .rail > * { scroll-snap-align: start; }
 .week { flex: 0 0 240px; display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); text-align: left; cursor: pointer; color: var(--ink); }
 .week .when { font-family: var(--display); font-size: 20px; font-weight: 700; line-height: 1.15; }
@@ -147,10 +151,10 @@ h3 { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; }
 .places { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .t-cafe { background: var(--sea-tint); } .t-bar { background: var(--clay-tint); } .t-act { background: var(--surface-2); } .t-sport { background: var(--leaf-tint); } .t-taxi { background: var(--sun-tint); }
 
-.featured { display: grid; gap: 10px; padding: 20px; border-radius: 20px; background: var(--ink); color: var(--bg); text-align: left; border: 0; cursor: pointer; }
-.featured .pill { background: var(--bg); color: var(--ink); justify-self: start; }
+.featured { display: grid; gap: 10px; padding: 20px; border-radius: 20px; background: var(--feat); color: var(--feat-ink); text-align: left; border: 0; cursor: pointer; }
+.featured .pill { background: var(--feat-ink); color: #FFFFFF; justify-self: start; }
 .featured .fname { font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1.1; }
-.featured .fmeta { opacity: .8; font-size: 15px; }
+.featured .fmeta { font-size: 15px; color: #1D3A48; }
 
 /* detail */
 .facts { display: flex; flex-direction: column; }
@@ -230,16 +234,18 @@ footer { max-width: 1120px; margin: 0 auto; padding: 0 20px calc(110px + env(saf
 <footer id="foot"></footer>
 <nav class="tabbar" id="tabs"></nav>
 <script>
-const PLACES = [{"id": "tatli", "cat": "cafe", "n": ["Tatlı Hayat", "Tatlı Hayat"], "area": ["Şehir merkezi", "City centre"], "tag": ["Ev yapımı pastalar", "Homemade cakes"], "why": ["Ev yapımı pastalar, doğal malzemeli sandviçler ve retro dekor. Self servis.", "Homemade cakes, sandwiches with natural ingredients and retro décor. Self-service."], "hours": ["Her gün 09:00–23:00", "Daily 09:00–23:00"], "address": "İstiklal Cd., Gazimağusa", "phone": "+90 548 860 20 31", "pid": "ChIJQ2s5Y_PJ3xQRzUlcY52x638", "featured": true, "lat": 35.1219116, "lng": 33.9400228}, {"id": "flatblack", "cat": "cafe", "n": ["Flat Black Coffee", "Flat Black Coffee"], "area": ["EMU kampüsü", "EMU campus"], "tag": ["Öğrenci dostu fiyatlar", "Student-friendly prices"], "why": ["Kampüsteki en uygun fiyatlı kahvelerden biri; güler yüzlü baristalar ve bahçe.", "Some of the most affordable coffee on campus, with friendly baristas and a garden."], "hours": ["Her gün 08:00–23:30", "Daily 08:00–23:30"], "address": "Doğu Akdeniz Üniversitesi, Gazimağusa", "phone": "+90 533 846 60 98", "pid": "ChIJs3FQn0bJ3xQRrs2cCL9t6UM", "featured": false, "lat": 35.14156, "lng": 33.9132923}, {"id": "mackbear", "cat": "cafe", "n": ["Mackbear Coffee Co.", "Mackbear Coffee Co."], "area": ["EMU yanı", "Next to EMU"], "tag": ["Ders çalışmaya uygun", "Good for studying"], "why": ["Masaların yanında priz var; sakin ortamıyla ders çalışmak için sevilen bir yer.", "Sockets by the seats and a calm vibe make it a favourite study spot."], "hours": ["Pzt–Cmt 08:00–01:00 · Paz 12:00–01:00", "Mon–Sat 08:00–01:00 · Sun 12:00–01:00"], "address": "Novel Centre Point No: 9-10, Gazimağusa", "phone": "", "pid": "ChIJQfBaUnLJ3xQR8bHhEtavS_M", "featured": false, "lat": 35.140845, "lng": 33.9148208}, {"id": "gua", "cat": "cafe", "n": ["Gua Coffee", "Gua Coffee"], "area": ["Salamis Yolu", "Salamis Yolu"], "tag": ["Sessiz çalışma odası", "Quiet work room"], "why": ["Geniş ve modern; ayrı çalışma odası, bahçe terası, bubble tea ve matcha.", "Spacious and modern, with a separate work room, garden terrace, bubble tea and matcha."], "hours": ["Her gün 07:30–01:00", "Daily 07:30–01:00"], "address": "Güneş Apartı, Salamis Yolu 145, Gazimağusa", "phone": "", "pid": "ChIJf8JnziHJ3xQRl8Rou-gygng", "featured": false, "lat": 35.1364016, "lng": 33.9209314}, {"id": "barnila", "cat": "cafe", "n": ["Cafe De Barnila", "Cafe De Barnila"], "area": ["Suriçi", "Old Town"], "tag": ["Türk kahvaltısı", "Turkish breakfast"], "why": ["Suriçi’nde sevilen bir kahvaltı yeri; mıhlama ve menemen öneriliyor.", "A popular breakfast spot in the Old Town, known for mıhlama and menemen."], "hours": ["Sal–Paz 08:30–15:00 · Pzt kapalı", "Tue–Sun 08:30–15:00 · closed Mon"], "address": "Naim Efendi Sk. 24, Suriçi, Gazimağusa", "phone": "+90 533 850 77 00", "pid": "ChIJMaBpkYzJ3xQRVi1U9mmDcSo", "featured": false, "lat": 35.1259496, "lng": 33.9412912}, {"id": "delmar", "cat": "cafe", "n": ["Cafe Del Mar", "Cafe Del Mar"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["Tostlarıyla ünlü", "Known for toasties"], "why": ["Güler yüzlü sahipler, uygun fiyatlar ve çok sevilen tostlar.", "Friendly owners, fair prices and much-loved toasties."], "hours": ["Sal–Paz 07:30–19:00 · Pzt kapalı", "Tue–Sun 07:30–19:00 · closed Mon"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 533 888 07 74", "pid": "ChIJe-P4Ag_J3xQROCWdA2WVnwI", "featured": false, "lat": 35.1303559, "lng": 33.9241666}, {"id": "fondaco", "cat": "bar", "n": ["Fondaco Cafe & Bar", "Fondaco Cafe & Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik · Cuma & Cumartesi", "Live music · Fri & Sat"], "why": ["Suriçi’nde eski ve otantik bir bar; kokteyller ve hafta sonu canlı müzik.", "An old, authentic bar in the Old Town, with cocktails and live music at weekends."], "hours": ["Cuma ve cumartesi geceleri canlı müzik", "Live music Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": true, "lat": 35.1241902, "lng": 33.9423982}, {"id": "demolay", "cat": "bar", "n": ["De Molay Bar", "De Molay Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyller · canlı müzik geceleri", "Cocktails · live music nights"], "why": ["Tarihi bir binada kokteyl bar; güler yüzlü ekip ve canlı müzik geceleri.", "Cocktail bar in a historic building, with friendly staff and live music nights."], "hours": ["Pzt–Cmt 18:00–02:00 · Paz 18:00–00:30", "Mon–Sat 18:00–02:00 · Sun 18:00–00:30"], "address": "Kışla Yolu Sk., Gazimağusa", "phone": "+90 533 868 08 08", "pid": "ChIJGefq4EzJ3xQRzam5kpCSD4s", "featured": false, "lat": 35.1254379, "lng": 33.9407037}, {"id": "pickle", "cat": "bar", "n": ["Pickle Pub", "Pickle Pub"], "area": ["Suriçi", "Old Town"], "tag": ["Yemek ve kokteyl", "Food & cocktails"], "why": ["Turşu temalı pub; iyi yemek, kokteyller ve keyifli müzik.", "Pickle-themed pub with good food, cocktails and great music."], "hours": ["Her gün 12:00–02:00", "Daily 12:00–02:00"], "address": "Kışla Yolu Sk. 8, Gazimağusa", "phone": "+90 533 889 04 23", "pid": "ChIJyYHdBQDJ3xQRL2FZCtjToSw", "featured": false, "lat": 35.125361, "lng": 33.9407493}, {"id": "legendary", "cat": "bar", "n": ["Legendary Sports Bar", "Legendary Sports Bar"], "area": ["EMU yanı", "Next to EMU"], "tag": ["Dev ekranda maçlar", "Matches on big screens"], "why": ["Büyük ekranlarda futbol ve F1, bilardo ve dart. Otelin 2. katında.", "Football and F1 on big screens, plus pool and darts. On the hotel’s 2nd floor."], "hours": ["Her gün 12:00–00:00", "Daily 12:00–00:00"], "address": "Novel Centre Point Hotel, İsmet İnönü Blv., Gazimağusa", "phone": "+90 392 365 00 51", "pid": "ChIJr940yNLJ3xQR_b7XYFeNeco", "featured": false, "lat": 35.1411331, "lng": 33.9148702}, {"id": "barcode", "cat": "bar", "n": ["BARCODE", "BARCODE"], "area": ["EMU karşısı", "Opposite EMU"], "tag": ["Rock bar · canlı müzik", "Rock bar · live music"], "why": ["Kampüsün karşısında rock bar; canlı müzik, burger ve bira.", "Rock bar opposite campus, with live music, burgers and beer."], "hours": ["Pzt–Cmt 16:00–02:00 · Paz kapalı", "Mon–Sat 16:00–02:00 · closed Sun"], "address": "İsmet İnönü Blv., Arken Apt. D3, Gazimağusa", "phone": "+90 542 859 63 89", "pid": "ChIJyckala3J3xQRhhTus-AsySk", "featured": false, "lat": 35.1432253, "lng": 33.9140453}, {"id": "enbarr", "cat": "bar", "n": ["EnBarr", "EnBarr"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik", "Live music"], "why": ["Suriçi’nde canlı müzik barı; iyi müzik ve servis.", "Live music bar in the Old Town with great music and service."], "hours": ["Sal–Paz 17:00–02:00 · Pzt kapalı", "Tue–Sun 17:00–02:00 · closed Mon"], "address": "Muzaffer Ersu Sk., Gazimağusa", "phone": "+90 533 822 23 40", "pid": "ChIJRaWdZTnJ3xQRBpGM3e3jEF8", "featured": false, "lat": 35.1247101, "lng": 33.9446148}, {"id": "monks", "cat": "bar", "n": ["Monks Inn", "Monks Inn"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyl bar", "Cocktail bar"], "why": ["Etkileyici bir binada kaliteli kokteyller.", "Quality cocktails in a striking building."], "hours": ["Her gün 17:00–02:00", "Daily 17:00–02:00"], "address": "William Dreghorn Sk., Gazimağusa", "phone": "+90 392 366 97 44", "pid": "ChIJ21iK5zrI3xQRj4ASW2JSwfo", "featured": false, "lat": 35.1253829, "lng": 33.9436039}, {"id": "fondacolive", "cat": "act", "n": ["Fondaco’da canlı müzik", "Live music at Fondaco"], "area": ["Suriçi", "Old Town"], "tag": ["Cuma & Cumartesi geceleri", "Fri & Sat nights"], "why": ["Fondaco Cafe & Bar’da her hafta sonu canlı müzik.", "Live music every weekend at Fondaco Cafe & Bar."], "hours": ["Cuma ve cumartesi geceleri", "Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": false, "lat": 35.1241902, "lng": 33.9423982}, {"id": "cinemall", "cat": "act", "n": ["Cinemall", "Cinemall"], "area": ["City Mall", "City Mall"], "tag": ["Sinema", "Cinema"], "why": ["City Mall içinde sinema; mağazalar, kafeler ve oyun salonu aynı binada.", "Cinema inside City Mall, with shops, cafés and an arcade in the same building."], "hours": ["Her gün 10:00–22:00", "Daily 10:00–22:00"], "address": "Şht. İbrahim Kazım Cd., Gazimağusa", "phone": "+90 392 365 58 00", "pid": "ChIJmSi7OVvJ3xQRhe2OrO9RGdY", "featured": false, "lat": 35.1258672, "lng": 33.9204361}, {"id": "bowling", "cat": "act", "n": ["Ice Bowling", "Ice Bowling"], "area": ["Kaliland", "Kaliland"], "tag": ["Bowling", "Bowling"], "why": ["Arkadaşlarla bowling; hemen yanında The Shamrock bar var.", "Bowling with friends, with The Shamrock bar right next door."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Halil Hamza Yolu, Gazimağusa", "phone": "", "pid": "ChIJu_X7WsTJ3xQRyQ4aIrdbYlM", "featured": false, "lat": 35.13266, "lng": 33.915614}, {"id": "othello", "cat": "act", "n": ["Othello Kalesi", "Othello Tower"], "area": ["Suriçi", "Old Town"], "tag": ["Gün batımı manzarası", "Sunset views"], "why": ["Surların üstünden liman ve Suriçi manzarası; gün batımında harika.", "Views over the harbour and Old Town from the walls, best at sunset."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Yeşil Deniz Cd. 35, Gazimağusa", "phone": "", "pid": "ChIJlQVuKvbJ3xQRXvoYQ-PiaXc", "featured": false, "lat": 35.1274147, "lng": 33.9436428}, {"id": "salamis", "cat": "act", "n": ["Salamis Antik Kenti", "Ancient Salamis"], "area": ["Salamis", "Salamis"], "tag": ["Antik kent", "Ancient city"], "why": ["Roma dönemi kalıntıları, hamamlar ve tiyatro. Erken git, öğlen çok sıcak.", "Roman ruins, baths and an amphitheatre. Go early: midday is very hot."], "hours": ["Her gün 08:00–19:00", "Daily 08:00–19:00"], "address": "Salamis, Gazimağusa", "phone": "", "pid": "ChIJp27_CgC33xQRQl7ihJUAS9s", "featured": false, "lat": 35.1865485, "lng": 33.903597}, {"id": "glapsides", "cat": "act", "n": ["Glapsides Plajı", "Glapsides Beach"], "area": ["Glapsides", "Glapsides"], "tag": ["Kumsal", "Sandy beach"], "why": ["Sığ ve berrak deniz; şezlong, duş ve tuvalet var.", "Shallow, clear water with sunbeds, showers and toilets."], "hours": ["Açık alan", "Open-air"], "address": "Glapsides Plajı, Gazimağusa", "phone": "", "pid": "ChIJyRRCsT623xQRMg3k1_yVOUA", "featured": false, "lat": 35.1613989, "lng": 33.9130574}, {"id": "lmp", "cat": "sport", "n": ["Lala Mustafa Paşa Spor Salonu", "Lala Mustafa Paşa Sports Complex"], "area": ["EMU kampüsü", "EMU campus"], "tag": ["Spor salonu ve kortlar", "Gym & courts"], "why": ["Kampüste spor salonu, basketbol, voleybol ve squash kortları.", "On-campus gym plus basketball, volleyball and squash courts."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Lala Mustafa Paşa Spor Sarayı, Gazimağusa", "phone": "", "pid": "ChIJF2ZfUOfJ3xQRrcJ49Lc_b68", "featured": false, "lat": 35.141652, "lng": 33.9079969}, {"id": "gymaholic", "cat": "sport", "n": ["Gymaholic Fitness Center", "Gymaholic Fitness Center"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Büyük salon · yoga", "Big gym · yoga"], "why": ["Çok katlı büyük salon; yoga ve kardiyo alanları. Kart geçmeyebilir, nakit götür.", "Huge multi-floor gym with yoga and cardio rooms. Bring cash: cards may not be accepted."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMF+PFW, Gazimağusa", "phone": "", "pid": "ChIJs30Jz13J3xQR4BtrN5HzhDA", "featured": false, "lat": 35.1343735, "lng": 33.9236995}, {"id": "rebel", "cat": "sport", "n": ["2REBEL Sports Club", "2REBEL Sports Club"], "area": ["Macro AVM", "Macro AVM"], "tag": ["Fitness ve kickboks", "Fitness & kickboxing"], "why": ["Temiz ve geniş salon, profesyonel eğitmenler ve kickboks dersleri.", "Clean, spacious gym with professional coaches and kickboxing classes."], "hours": ["Pzt–Cum 08:00–22:00 · Cmt 10:00–19:00 · Paz kapalı", "Mon–Fri 08:00–22:00 · Sat 10:00–19:00 · closed Sun"], "address": "Macro AVM 1. kat, İsmet İnönü Blv., Gazimağusa", "phone": "+90 533 883 57 99", "pid": "ChIJ43JqHcPJ3xQR5eamXa6MRUA", "featured": false, "lat": 35.1330567, "lng": 33.9230989}, {"id": "fitplus", "cat": "sport", "n": ["Fit Plus ViaPark", "Fit Plus ViaPark"], "area": ["Alasya Park", "Alasya Park"], "tag": ["Havuz ve CrossFit", "Pool & CrossFit"], "why": ["Kendi havuzu ve ayrı CrossFit alanı olan spor salonu.", "Gym with its own pool and a separate CrossFit area."], "hours": ["Pzt–Cum 06:00–22:00 · Cmt–Paz 08:00–21:00", "Mon–Fri 06:00–22:00 · Sat–Sun 08:00–21:00"], "address": "Alasya Park Sitesi, Uluçam Yolu Sk. 2, Gazimağusa", "phone": "", "pid": "ChIJG2Pki2HJ3xQREW7csSUJtTE", "featured": false, "lat": 35.1382455, "lng": 33.9282046}, {"id": "powergym", "cat": "sport", "n": ["Power Gym", "Power Gym"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Uygun üyelik", "Affordable membership"], "why": ["Uygun fiyatlı üyelik, güler yüzlü ekip ve geniş ekipman.", "Affordable membership, friendly staff and lots of equipment."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMG+292, Gazimağusa", "phone": "", "pid": "ChIJE6yjGpLJ3xQRzquKvyfIeZA", "featured": false, "lat": 35.1325185, "lng": 33.9258818}, {"id": "sporium", "cat": "sport", "n": ["Sporium Gym Mağusa", "Sporium Gym Mağusa"], "area": ["Fikret Demirağ Sk.", "Fikret Demirağ Sk."], "tag": ["Yeni ekipman", "New equipment"], "why": ["Yeni açılmış temiz salon; yeni başlayanlara sabırlı eğitmenler.", "Newly opened, clean gym with coaches who are patient with beginners."], "hours": ["Pzt–Cum 07:00–23:00 · Cmt 12:00–20:00 · Paz 12:00–17:00", "Mon–Fri 07:00–23:00 · Sat 12:00–20:00 · Sun 12:00–17:00"], "address": "Fikret Demirağ Sk., Gazimağusa", "phone": "+90 533 870 34 77", "pid": "ChIJ_Sw6uInJ3xQR2wk5auYIFOY", "featured": false, "lat": 35.1176153, "lng": 33.9193073}, {"id": "ulas", "cat": "taxi", "n": ["Ulaş Taksi", "Ulaş Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["Gazimağusa’da 7/24 taksi durağı.", "24/7 taxi rank in Famagusta."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 835 20 20", "pid": "ChIJjdH_DsjJ3xQRX2S6VLgxBcQ", "featured": false, "lat": null, "lng": null}, {"id": "gocmen", "cat": "taxi", "n": ["Göçmen Taksi", "Göçmen Taksi"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["7/24 · taksimetre", "24/7 · meter"], "why": ["7/24 açık; yorumlara göre yeni araçlar ve taksimetre kullanılıyor.", "Open 24/7; reviews mention new cars and use of the meter."], "hours": ["7/24 açık", "Open 24/7"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 392 365 00 23", "pid": "ChIJcxEu3c3J3xQRSDyPXH2MDx8", "featured": false, "lat": null, "lng": null}, {"id": "mehmet", "cat": "taxi", "n": ["Mağusa Taksi", "Mağusa Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["İngilizce · turlar", "English spoken · tours"], "why": ["7/24; İngilizce konuşuluyor, ada turları da yapılıyor.", "24/7; English spoken, also runs island tours."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 845 17 45", "pid": "ChIJg2JhTt_J3xQRAQU1HVP2laY", "featured": false, "lat": null, "lng": null}, {"id": "ozan", "cat": "taxi", "n": ["Mağusa Taksi Ozan", "Mağusa Taksi Ozan"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["7/24; temiz araçlar ve güler yüzlü sürücüler.", "24/7; clean cars and friendly drivers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 846 21 02", "pid": "ChIJN_Ho1XHJ3xQR9tVoxp4T4Ks", "featured": false, "lat": null, "lng": null}, {"id": "ercan", "cat": "taxi", "n": ["Magosa Taksi (Ercan)", "Magosa Taksi (Ercan)"], "area": ["Emre Sona Sk.", "Emre Sona Sk."], "tag": ["Havalimanı transferi", "Airport transfers"], "why": ["7/24; Ercan havalimanı transferleri.", "24/7; Ercan airport transfers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Emre Sona Sk., Gazimağusa", "phone": "+90 533 883 27 00", "pid": "ChIJP3C9FzXI3xQRHb8wVkVZEfw", "featured": false, "lat": null, "lng": null}, {"id": "gokhan", "cat": "taxi", "n": ["Mağusa Taksi – Gökhan", "Mağusa Taksi – Gökhan"], "area": ["Gazi Mustafa Kemal Blv.", "Gazi Mustafa Kemal Blv."], "tag": ["Araçta kartla ödeme", "Card payment in car"], "why": ["Araçta POS cihazı var; yorumlara göre taksimetre kullanılıyor.", "Has a card machine in the car; reviews say the meter is used."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Gazi Mustafa Kemal Blv., Gazimağusa", "phone": "+90 539 121 53 05", "pid": "ChIJV7lGCljJ3xQRysyTLNm4RwQ", "featured": false, "lat": null, "lng": null}];
+const DORMS = [{"n": "Alfam Öğrenci Yurtları", "area": ["DAÜ kampüsü", "EMU campus"], "note": ["Kampüste, farklı blok ve oda seçenekleri", "On campus, with several blocks and room types"], "phone": "+90 548 894 05 15", "pid": "ChIJBYfC4t_J3xQRjGp6Ci9y4rE"}, {"n": "Marmara Öğrenci Yurdu", "area": ["DAÜ kampüsü", "EMU campus"], "note": ["Kampüsün ortasında, geniş odalar", "In the middle of campus, with large rooms"], "phone": "+90 392 365 43 33", "pid": "ChIJ6-fuw-HJ3xQRFMpLn9UbDVE"}, {"n": "EMU-3 Dormitory", "area": ["DAÜ kampüsü", "EMU campus"], "note": ["Üniversitenin kendi yurdu, genelde daha uygun; ortak mutfak ve banyo", "Run by the university and usually cheaper; shared kitchens and bathrooms"], "phone": "+90 392 630 36 73", "pid": "ChIJL-oZHx623xQR-IQhzulKRj0", "n_tr": "DAÜ-3 Yurdu"}, {"n": "Ramen Dorms", "area": ["DAÜ yurtlar bölgesi", "EMU dorm area"], "note": ["Sessiz çalışma odaları, 7/24 açık", "Quiet study rooms, open 24/7"], "phone": "+90 533 821 00 30", "pid": "ChIJd5muG8i33xQRYNQ9fm3AVMo"}, {"n": "Pop Art Dorms", "area": ["DAÜ güney kampüsü", "EMU south campus"], "note": ["Binada spor salonu, sinema odası ve market var; fiyatı daha yüksek", "Gym, cinema room and a market in the building; higher prices"], "phone": "+90 392 444 36 76", "pid": "ChIJz9YR7ufJ3xQRz3mWs0hmxso"}, {"n": "Novel Centre Point Dormitory", "area": ["DAÜ ana kapısı", "EMU main gate"], "note": ["Otel tarzı odalar, ana kapının hemen yanında", "Hotel-style rooms right by the main gate"], "phone": "+90 546 991 70 00", "pid": "ChIJC-dtYtnJ3xQR9O9GLewiCvs"}];
+const PLACES = [{"id": "tatli", "cat": "cafe", "n": ["Tatlı Hayat", "Tatlı Hayat"], "area": ["Şehir merkezi", "City centre"], "tag": ["Ev yapımı pastalar", "Homemade cakes"], "why": ["Ev yapımı pastalar, doğal malzemeli sandviçler ve retro dekor. Self servis.", "Homemade cakes, sandwiches with natural ingredients and retro décor. Self-service."], "hours": ["Her gün 09:00–23:00", "Daily 09:00–23:00"], "address": "İstiklal Cd., Gazimağusa", "phone": "+90 548 860 20 31", "pid": "ChIJQ2s5Y_PJ3xQRzUlcY52x638", "featured": true, "lat": 35.1219116, "lng": 33.9400228}, {"id": "flatblack", "cat": "cafe", "n": ["Flat Black Coffee", "Flat Black Coffee"], "area": ["DAÜ kampüsü", "EMU campus"], "tag": ["Öğrenci dostu fiyatlar", "Student-friendly prices"], "why": ["Kampüsteki en uygun fiyatlı kahvelerden biri; güler yüzlü baristalar ve bahçe.", "Some of the most affordable coffee on campus, with friendly baristas and a garden."], "hours": ["Her gün 08:00–23:30", "Daily 08:00–23:30"], "address": "Doğu Akdeniz Üniversitesi, Gazimağusa", "phone": "+90 533 846 60 98", "pid": "ChIJs3FQn0bJ3xQRrs2cCL9t6UM", "featured": false, "lat": 35.14156, "lng": 33.9132923}, {"id": "mackbear", "cat": "cafe", "n": ["Mackbear Coffee Co.", "Mackbear Coffee Co."], "area": ["DAÜ yanı", "Next to EMU"], "tag": ["Ders çalışmaya uygun", "Good for studying"], "why": ["Masaların yanında priz var; sakin ortamıyla ders çalışmak için sevilen bir yer.", "Sockets by the seats and a calm vibe make it a favourite study spot."], "hours": ["Pzt–Cmt 08:00–01:00 · Paz 12:00–01:00", "Mon–Sat 08:00–01:00 · Sun 12:00–01:00"], "address": "Novel Centre Point No: 9-10, Gazimağusa", "phone": "", "pid": "ChIJQfBaUnLJ3xQR8bHhEtavS_M", "featured": false, "lat": 35.140845, "lng": 33.9148208}, {"id": "gua", "cat": "cafe", "n": ["Gua Coffee", "Gua Coffee"], "area": ["Salamis Yolu", "Salamis Yolu"], "tag": ["Sessiz çalışma odası", "Quiet work room"], "why": ["Geniş ve modern; ayrı çalışma odası, bahçe terası, bubble tea ve matcha.", "Spacious and modern, with a separate work room, garden terrace, bubble tea and matcha."], "hours": ["Her gün 07:30–01:00", "Daily 07:30–01:00"], "address": "Güneş Apartı, Salamis Yolu 145, Gazimağusa", "phone": "", "pid": "ChIJf8JnziHJ3xQRl8Rou-gygng", "featured": false, "lat": 35.1364016, "lng": 33.9209314}, {"id": "barnila", "cat": "cafe", "n": ["Cafe De Barnila", "Cafe De Barnila"], "area": ["Suriçi", "Old Town"], "tag": ["Türk kahvaltısı", "Turkish breakfast"], "why": ["Suriçi’nde sevilen bir kahvaltı yeri; mıhlama ve menemen öneriliyor.", "A popular breakfast spot in the Old Town, known for mıhlama and menemen."], "hours": ["Sal–Paz 08:30–15:00 · Pzt kapalı", "Tue–Sun 08:30–15:00 · closed Mon"], "address": "Naim Efendi Sk. 24, Suriçi, Gazimağusa", "phone": "+90 533 850 77 00", "pid": "ChIJMaBpkYzJ3xQRVi1U9mmDcSo", "featured": false, "lat": 35.1259496, "lng": 33.9412912}, {"id": "delmar", "cat": "cafe", "n": ["Cafe Del Mar", "Cafe Del Mar"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["Tostlarıyla ünlü", "Known for toasties"], "why": ["Güler yüzlü sahipler, uygun fiyatlar ve çok sevilen tostlar.", "Friendly owners, fair prices and much-loved toasties."], "hours": ["Sal–Paz 07:30–19:00 · Pzt kapalı", "Tue–Sun 07:30–19:00 · closed Mon"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 533 888 07 74", "pid": "ChIJe-P4Ag_J3xQROCWdA2WVnwI", "featured": false, "lat": 35.1303559, "lng": 33.9241666}, {"id": "fondaco", "cat": "bar", "n": ["Fondaco Cafe & Bar", "Fondaco Cafe & Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik · Cuma & Cumartesi", "Live music · Fri & Sat"], "why": ["Suriçi’nde eski ve otantik bir bar; kokteyller ve hafta sonu canlı müzik.", "An old, authentic bar in the Old Town, with cocktails and live music at weekends."], "hours": ["Cuma ve cumartesi geceleri canlı müzik", "Live music Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": true, "lat": 35.1241902, "lng": 33.9423982}, {"id": "demolay", "cat": "bar", "n": ["De Molay Bar", "De Molay Bar"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyller · canlı müzik geceleri", "Cocktails · live music nights"], "why": ["Tarihi bir binada kokteyl bar; güler yüzlü ekip ve canlı müzik geceleri.", "Cocktail bar in a historic building, with friendly staff and live music nights."], "hours": ["Pzt–Cmt 18:00–02:00 · Paz 18:00–00:30", "Mon–Sat 18:00–02:00 · Sun 18:00–00:30"], "address": "Kışla Yolu Sk., Gazimağusa", "phone": "+90 533 868 08 08", "pid": "ChIJGefq4EzJ3xQRzam5kpCSD4s", "featured": false, "lat": 35.1254379, "lng": 33.9407037}, {"id": "pickle", "cat": "bar", "n": ["Pickle Pub", "Pickle Pub"], "area": ["Suriçi", "Old Town"], "tag": ["Yemek ve kokteyl", "Food & cocktails"], "why": ["Turşu temalı pub; iyi yemek, kokteyller ve keyifli müzik.", "Pickle-themed pub with good food, cocktails and great music."], "hours": ["Her gün 12:00–02:00", "Daily 12:00–02:00"], "address": "Kışla Yolu Sk. 8, Gazimağusa", "phone": "+90 533 889 04 23", "pid": "ChIJyYHdBQDJ3xQRL2FZCtjToSw", "featured": false, "lat": 35.125361, "lng": 33.9407493}, {"id": "legendary", "cat": "bar", "n": ["Legendary Sports Bar", "Legendary Sports Bar"], "area": ["DAÜ yanı", "Next to EMU"], "tag": ["Dev ekranda maçlar", "Matches on big screens"], "why": ["Büyük ekranlarda futbol ve F1, bilardo ve dart. Otelin 2. katında.", "Football and F1 on big screens, plus pool and darts. On the hotel’s 2nd floor."], "hours": ["Her gün 12:00–00:00", "Daily 12:00–00:00"], "address": "Novel Centre Point Hotel, İsmet İnönü Blv., Gazimağusa", "phone": "+90 392 365 00 51", "pid": "ChIJr940yNLJ3xQR_b7XYFeNeco", "featured": false, "lat": 35.1411331, "lng": 33.9148702}, {"id": "barcode", "cat": "bar", "n": ["BARCODE", "BARCODE"], "area": ["DAÜ karşısı", "Opposite EMU"], "tag": ["Rock bar · canlı müzik", "Rock bar · live music"], "why": ["Kampüsün karşısında rock bar; canlı müzik, burger ve bira.", "Rock bar opposite campus, with live music, burgers and beer."], "hours": ["Pzt–Cmt 16:00–02:00 · Paz kapalı", "Mon–Sat 16:00–02:00 · closed Sun"], "address": "İsmet İnönü Blv., Arken Apt. D3, Gazimağusa", "phone": "+90 542 859 63 89", "pid": "ChIJyckala3J3xQRhhTus-AsySk", "featured": false, "lat": 35.1432253, "lng": 33.9140453}, {"id": "enbarr", "cat": "bar", "n": ["EnBarr", "EnBarr"], "area": ["Suriçi", "Old Town"], "tag": ["Canlı müzik", "Live music"], "why": ["Suriçi’nde canlı müzik barı; iyi müzik ve servis.", "Live music bar in the Old Town with great music and service."], "hours": ["Sal–Paz 17:00–02:00 · Pzt kapalı", "Tue–Sun 17:00–02:00 · closed Mon"], "address": "Muzaffer Ersu Sk., Gazimağusa", "phone": "+90 533 822 23 40", "pid": "ChIJRaWdZTnJ3xQRBpGM3e3jEF8", "featured": false, "lat": 35.1247101, "lng": 33.9446148}, {"id": "monks", "cat": "bar", "n": ["Monks Inn", "Monks Inn"], "area": ["Suriçi", "Old Town"], "tag": ["Kokteyl bar", "Cocktail bar"], "why": ["Etkileyici bir binada kaliteli kokteyller.", "Quality cocktails in a striking building."], "hours": ["Her gün 17:00–02:00", "Daily 17:00–02:00"], "address": "William Dreghorn Sk., Gazimağusa", "phone": "+90 392 366 97 44", "pid": "ChIJ21iK5zrI3xQRj4ASW2JSwfo", "featured": false, "lat": 35.1253829, "lng": 33.9436039}, {"id": "fondacolive", "cat": "act", "n": ["Fondaco’da canlı müzik", "Live music at Fondaco"], "area": ["Suriçi", "Old Town"], "tag": ["Cuma & Cumartesi geceleri", "Fri & Sat nights"], "why": ["Fondaco Cafe & Bar’da her hafta sonu canlı müzik.", "Live music every weekend at Fondaco Cafe & Bar."], "hours": ["Cuma ve cumartesi geceleri", "Friday and Saturday nights"], "address": "Lala Mustafa Paşa Sk. 22, Gazimağusa", "phone": "", "pid": "ChIJj2uVJQDJ3xQRdai6rvs2py0", "featured": false, "lat": 35.1241902, "lng": 33.9423982}, {"id": "cinemall", "cat": "act", "n": ["Cinemall", "Cinemall"], "area": ["City Mall", "City Mall"], "tag": ["Sinema", "Cinema"], "why": ["City Mall içinde sinema; mağazalar, kafeler ve oyun salonu aynı binada.", "Cinema inside City Mall, with shops, cafés and an arcade in the same building."], "hours": ["Her gün 10:00–22:00", "Daily 10:00–22:00"], "address": "Şht. İbrahim Kazım Cd., Gazimağusa", "phone": "+90 392 365 58 00", "pid": "ChIJmSi7OVvJ3xQRhe2OrO9RGdY", "featured": false, "lat": 35.1258672, "lng": 33.9204361}, {"id": "bowling", "cat": "act", "n": ["Ice Bowling", "Ice Bowling"], "area": ["Kaliland", "Kaliland"], "tag": ["Bowling", "Bowling"], "why": ["Arkadaşlarla bowling; hemen yanında The Shamrock bar var.", "Bowling with friends, with The Shamrock bar right next door."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Halil Hamza Yolu, Gazimağusa", "phone": "", "pid": "ChIJu_X7WsTJ3xQRyQ4aIrdbYlM", "featured": false, "lat": 35.13266, "lng": 33.915614}, {"id": "othello", "cat": "act", "n": ["Othello Kalesi", "Othello Tower"], "area": ["Suriçi", "Old Town"], "tag": ["Gün batımı manzarası", "Sunset views"], "why": ["Surların üstünden liman ve Suriçi manzarası; gün batımında harika.", "Views over the harbour and Old Town from the walls, best at sunset."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Yeşil Deniz Cd. 35, Gazimağusa", "phone": "", "pid": "ChIJlQVuKvbJ3xQRXvoYQ-PiaXc", "featured": false, "lat": 35.1274147, "lng": 33.9436428}, {"id": "salamis", "cat": "act", "n": ["Salamis Antik Kenti", "Ancient Salamis"], "area": ["Salamis", "Salamis"], "tag": ["Antik kent", "Ancient city"], "why": ["Roma dönemi kalıntıları, hamamlar ve tiyatro. Erken git, öğlen çok sıcak.", "Roman ruins, baths and an amphitheatre. Go early: midday is very hot."], "hours": ["Her gün 08:00–19:00", "Daily 08:00–19:00"], "address": "Salamis, Gazimağusa", "phone": "", "pid": "ChIJp27_CgC33xQRQl7ihJUAS9s", "featured": false, "lat": 35.1865485, "lng": 33.903597}, {"id": "glapsides", "cat": "act", "n": ["Glapsides Plajı", "Glapsides Beach"], "area": ["Glapsides", "Glapsides"], "tag": ["Kumsal", "Sandy beach"], "why": ["Sığ ve berrak deniz; şezlong, duş ve tuvalet var.", "Shallow, clear water with sunbeds, showers and toilets."], "hours": ["Açık alan", "Open-air"], "address": "Glapsides Plajı, Gazimağusa", "phone": "", "pid": "ChIJyRRCsT623xQRMg3k1_yVOUA", "featured": false, "lat": 35.1613989, "lng": 33.9130574}, {"id": "lmp", "cat": "sport", "n": ["Lala Mustafa Paşa Spor Salonu", "Lala Mustafa Paşa Sports Complex"], "area": ["DAÜ kampüsü", "EMU campus"], "tag": ["Spor salonu ve kortlar", "Gym & courts"], "why": ["Kampüste spor salonu, basketbol, voleybol ve squash kortları.", "On-campus gym plus basketball, volleyball and squash courts."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Lala Mustafa Paşa Spor Sarayı, Gazimağusa", "phone": "", "pid": "ChIJF2ZfUOfJ3xQRrcJ49Lc_b68", "featured": false, "lat": 35.141652, "lng": 33.9079969}, {"id": "gymaholic", "cat": "sport", "n": ["Gymaholic Fitness Center", "Gymaholic Fitness Center"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Büyük salon · yoga", "Big gym · yoga"], "why": ["Çok katlı büyük salon; yoga ve kardiyo alanları. Kart geçmeyebilir, nakit götür.", "Huge multi-floor gym with yoga and cardio rooms. Bring cash: cards may not be accepted."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMF+PFW, Gazimağusa", "phone": "", "pid": "ChIJs30Jz13J3xQR4BtrN5HzhDA", "featured": false, "lat": 35.1343735, "lng": 33.9236995}, {"id": "rebel", "cat": "sport", "n": ["2REBEL Sports Club", "2REBEL Sports Club"], "area": ["Macro AVM", "Macro AVM"], "tag": ["Fitness ve kickboks", "Fitness & kickboxing"], "why": ["Temiz ve geniş salon, profesyonel eğitmenler ve kickboks dersleri.", "Clean, spacious gym with professional coaches and kickboxing classes."], "hours": ["Pzt–Cum 08:00–22:00 · Cmt 10:00–19:00 · Paz kapalı", "Mon–Fri 08:00–22:00 · Sat 10:00–19:00 · closed Sun"], "address": "Macro AVM 1. kat, İsmet İnönü Blv., Gazimağusa", "phone": "+90 533 883 57 99", "pid": "ChIJ43JqHcPJ3xQR5eamXa6MRUA", "featured": false, "lat": 35.1330567, "lng": 33.9230989}, {"id": "fitplus", "cat": "sport", "n": ["Fit Plus ViaPark", "Fit Plus ViaPark"], "area": ["Alasya Park", "Alasya Park"], "tag": ["Havuz ve CrossFit", "Pool & CrossFit"], "why": ["Kendi havuzu ve ayrı CrossFit alanı olan spor salonu.", "Gym with its own pool and a separate CrossFit area."], "hours": ["Pzt–Cum 06:00–22:00 · Cmt–Paz 08:00–21:00", "Mon–Fri 06:00–22:00 · Sat–Sun 08:00–21:00"], "address": "Alasya Park Sitesi, Uluçam Yolu Sk. 2, Gazimağusa", "phone": "", "pid": "ChIJG2Pki2HJ3xQREW7csSUJtTE", "featured": false, "lat": 35.1382455, "lng": 33.9282046}, {"id": "powergym", "cat": "sport", "n": ["Power Gym", "Power Gym"], "area": ["Gazimağusa", "Famagusta"], "tag": ["Uygun üyelik", "Affordable membership"], "why": ["Uygun fiyatlı üyelik, güler yüzlü ekip ve geniş ekipman.", "Affordable membership, friendly staff and lots of equipment."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "4WMG+292, Gazimağusa", "phone": "", "pid": "ChIJE6yjGpLJ3xQRzquKvyfIeZA", "featured": false, "lat": 35.1325185, "lng": 33.9258818}, {"id": "sporium", "cat": "sport", "n": ["Sporium Gym Mağusa", "Sporium Gym Mağusa"], "area": ["Fikret Demirağ Sk.", "Fikret Demirağ Sk."], "tag": ["Yeni ekipman", "New equipment"], "why": ["Yeni açılmış temiz salon; yeni başlayanlara sabırlı eğitmenler.", "Newly opened, clean gym with coaches who are patient with beginners."], "hours": ["Pzt–Cum 07:00–23:00 · Cmt 12:00–20:00 · Paz 12:00–17:00", "Mon–Fri 07:00–23:00 · Sat 12:00–20:00 · Sun 12:00–17:00"], "address": "Fikret Demirağ Sk., Gazimağusa", "phone": "+90 533 870 34 77", "pid": "ChIJ_Sw6uInJ3xQR2wk5auYIFOY", "featured": false, "lat": 35.1176153, "lng": 33.9193073}, {"id": "ulas", "cat": "taxi", "n": ["Ulaş Taksi", "Ulaş Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["Gazimağusa’da 7/24 taksi durağı.", "24/7 taxi rank in Famagusta."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 835 20 20", "pid": "ChIJjdH_DsjJ3xQRX2S6VLgxBcQ", "featured": false, "lat": null, "lng": null}, {"id": "gocmen", "cat": "taxi", "n": ["Göçmen Taksi", "Göçmen Taksi"], "area": ["Savaş Sk.", "Savaş Sk."], "tag": ["7/24 · taksimetre", "24/7 · meter"], "why": ["7/24 açık; yorumlara göre yeni araçlar ve taksimetre kullanılıyor.", "Open 24/7; reviews mention new cars and use of the meter."], "hours": ["7/24 açık", "Open 24/7"], "address": "Savaş Sk., Gazimağusa", "phone": "+90 392 365 00 23", "pid": "ChIJcxEu3c3J3xQRSDyPXH2MDx8", "featured": false, "lat": null, "lng": null}, {"id": "mehmet", "cat": "taxi", "n": ["Mağusa Taksi", "Mağusa Taksi"], "area": ["Gazimağusa", "Famagusta"], "tag": ["İngilizce · turlar", "English spoken · tours"], "why": ["7/24; İngilizce konuşuluyor, ada turları da yapılıyor.", "24/7; English spoken, also runs island tours."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 845 17 45", "pid": "ChIJg2JhTt_J3xQRAQU1HVP2laY", "featured": false, "lat": null, "lng": null}, {"id": "ozan", "cat": "taxi", "n": ["Mağusa Taksi Ozan", "Mağusa Taksi Ozan"], "area": ["Gazimağusa", "Famagusta"], "tag": ["7/24", "24/7"], "why": ["7/24; temiz araçlar ve güler yüzlü sürücüler.", "24/7; clean cars and friendly drivers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Gazimağusa", "phone": "+90 533 846 21 02", "pid": "ChIJN_Ho1XHJ3xQR9tVoxp4T4Ks", "featured": false, "lat": null, "lng": null}, {"id": "ercan", "cat": "taxi", "n": ["Magosa Taksi (Ercan)", "Magosa Taksi (Ercan)"], "area": ["Emre Sona Sk.", "Emre Sona Sk."], "tag": ["Havalimanı transferi", "Airport transfers"], "why": ["7/24; Ercan havalimanı transferleri.", "24/7; Ercan airport transfers."], "hours": ["7/24 açık", "Open 24/7"], "address": "Emre Sona Sk., Gazimağusa", "phone": "+90 533 883 27 00", "pid": "ChIJP3C9FzXI3xQRHb8wVkVZEfw", "featured": false, "lat": null, "lng": null}, {"id": "gokhan", "cat": "taxi", "n": ["Mağusa Taksi – Gökhan", "Mağusa Taksi – Gökhan"], "area": ["Gazi Mustafa Kemal Blv.", "Gazi Mustafa Kemal Blv."], "tag": ["Araçta kartla ödeme", "Card payment in car"], "why": ["Araçta POS cihazı var; yorumlara göre taksimetre kullanılıyor.", "Has a card machine in the car; reviews say the meter is used."], "hours": ["Saatler eklenecek", "Hours to be added"], "address": "Gazi Mustafa Kemal Blv., Gazimağusa", "phone": "+90 539 121 53 05", "pid": "ChIJV7lGCljJ3xQRysyTLNm4RwQ", "featured": false, "lat": null, "lng": null}];
 const S = {
   tr: {
     nav: { home: 'Ana sayfa', housing: 'Evler', arrival: 'Geliş', discover: 'Keşfet', transport: 'Ulaşım', help: 'Yardım' },
-    langLabel: 'Dil', helpLabel: 'Yardım ve güvenlik', uni: 'EMU · Gazimağusa',
+    langLabel: 'Dil', helpLabel: 'Yardım ve güvenlik', uni: 'DAÜ · Gazimağusa',
     hello: 'Kuzey Kıbrıs’a hoş geldin',
     helloSub: 'İlk dönemin için gereken her şey, aynı yoldan geçmiş öğrenciler tarafından kontrol edildi.',
     homeHousingT: 'Doğrulanmış evler çok yakında',
-    homeHousingP: 'EMU çevresindeki daire ve yurtları tek tek yerinde kontrol ediyoruz. İlk haberdar olmak için listeye katıl.',
+    homeHousingP: 'DAÜ çevresindeki daire ve yurtları tek tek yerinde kontrol ediyoruz. İlk haberdar olmak için listeye katıl.',
     homeHousingBtn: 'Ev listesine katıl',
+    comingT: 'Kuzey Kıbrıs’a gelmeyi mi planlıyorsun?', comingP: 'Biletten belgelere, ilk gecelerden DAÜ’ye transfere kadar her adımı birlikte hazırlayalım.', comingBtn: 'Evet, adımları göster', comingCont: 'Kaldığın yerden devam et',
     progressT: 'Geliş listen', progress: (a, b) => `${b} adımdan ${a} tanesi tamam`, progressBtn: 'Listeyi aç',
     weekT: 'Bu hafta Gazimağusa’da', seeAll: 'Tümünü gör',
     weekCards: [
@@ -252,7 +258,7 @@ const S = {
     tipT: 'Ödeme yapmadan önce', tipP: 'Evi yüz yüze ya da canlı görüntülü aramada görmeden asla depozito gönderme.',
     tipLink: 'Güvenlik ipuçları ve acil numaralar',
     hT: 'Doğrulanmış evler çok yakında',
-    hP: 'EMU çevresindeki daire ve yurtları tek tek ziyaret ediyor, fotoğrafların gerçek ve fiyatın doğru olduğunu kontrol ediyoruz. Listeye katıl, ilk doğrulanmış evler yayına girince sana WhatsApp’tan haber verelim.',
+    hP: 'DAÜ çevresindeki daire ve yurtları tek tek ziyaret ediyor, fotoğrafların gerçek ve fiyatın doğru olduğunu kontrol ediyoruz. Listeye katıl, ilk doğrulanmış evler yayına girince sana WhatsApp’tan haber verelim.',
     hTabStudent: 'Ev arıyorum', hTabOwner: 'Ev sahibiyim / yurdum var',
     fName: 'Adın', fPhone: 'WhatsApp numaran', fType: 'Ne tür bir yer?', fMove: 'Ne zaman taşınmak istiyorsun?', fArea: 'Bölge', fUnits: 'Kaç oda ya da daire?',
     fOwnerName: 'Adınız', fOwnerPhone: 'WhatsApp numaranız', fOwnerType: 'Ne tür bir yer?',
@@ -269,18 +275,44 @@ const S = {
       ['Fotoğraflar gerçek', 'Fotoğrafların kiralayacağın yerle aynı olduğunu kontrol ederiz.'],
       ['Fiyat teyitli', 'Kira, depozito ve faturaları ev sahibiyle teyit ederiz.']
     ],
-    aT: 'Geliş listesi', aProgress: 'İlerlemen', aRoutesT: 'Buraya gelmenin iki yolu',
-    aRoutesP: 'Türkiye’den Ercan’a direkt uçuşlar var. Larnaka’ya inmek istersen, pasaportun için Kıbrıs Cumhuriyeti vizesi gerekip gerekmediğini önceden kontrol et.',
-    aBefore: 'Yola çıkmadan önce', aWeek: 'İlk haftan', aSaved: 'İşaretlerin bu cihazda saklanır.',
+    aT: 'Geliş listesi', aProgress: 'İlerlemen',
+    tripT: 'Kuzey Kıbrıs’a nasıl geleceksin?', tripCheck: 'Bilet almadan önce güncel uçuş ve feribot saatlerini kontrol et.',
+    trips: {
+      ercan: { label: 'Uçakla Ercan’a', info: 'Ercan Havalimanı’na direkt uçuşlar yalnızca Türkiye’den kalkıyor (örneğin İstanbul, Ankara, İzmir, Antalya). Ercan’dan Gazimağusa’ya karayoluyla yaklaşık 45 dakika.', transfer: 'Ercan’dan DAÜ’ye yaklaşık 45 dk' },
+      magusa: { label: 'Feribotla Gazimağusa’ya', info: 'Mersin’den Gazimağusa Limanı’na feribot seferleri var. Liman şehir merkezinde; DAÜ’ye taksiyle yaklaşık 10 dakika.', transfer: 'Limandan DAÜ’ye taksiyle yaklaşık 10 dk' },
+      girne: { label: 'Feribotla Girne’ye', info: 'Taşucu ve Mersin’den Girne Limanı’na feribot seferleri var. Girne’den Gazimağusa’ya karayoluyla yaklaşık 1 saat.', transfer: 'Girne’den DAÜ’ye yaklaşık 1 saat' }
+    },
+    aBefore: 'Yola çıkmadan önce', aDay: 'Geldiğin gün', aWeek: 'İlk haftan', aSaved: 'İşaretlerin bu cihazda saklanır.',
+    transferQ: 'DAÜ’ye transferini ayarladın mı?', transferDone: 'Harika, DAÜ’ye nasıl gideceğin belli.', transferT: 'DAÜ’ye nasıl gidilir',
+    kibhasNote: 'Ercan Havalimanı’ndan DAÜ kampüsündeki KIBHAS durağına havalimanı otobüsü. Bileti önceden KIBHAS uygulamasından ya da havalimanında al; otobüsler dolabiliyor, erken git.',
+    kibhasArea: 'Ercan Havalimanı → DAÜ kampüs durağı',
+    taxiT: 'Taksi', taxiNote: 'Kapıdan kapıya. Fiyatı binmeden önce sor.', taxiBtn: 'Taksi şirketlerini gör',
+    nightsQ: 'Kalacak bir yer ayarladın mı?', nightsYes: 'Evet', nightsNo: 'Henüz değil', nightsDone: 'Harika, ilk gecelerin hazır.',
+    dormsT: 'DAÜ yakınındaki yurtlar', dormsMore: 'Doğrulanmış daireler için ev listesine katıl',
+    dormsNote: 'Ödeme yapmadan önce yurdu gez ya da görüntülü ara. İlk birkaç gece için kısa konaklama yapıp yapmadıklarını sor.',
+    dormsSrc: 'Bilgiler Google Haritalar’dan alındı. AdaGo bu yurtları henüz doğrulamadı.', map: 'Harita',
+    docsBtn: (a, b) => `Belge listesi · ${b} belgeden ${a} tanesi hazır`, docsHide: 'Belge listesini gizle',
+    docsNote: 'Her belgenin aslını ve birkaç fotokopisini yanına al. Hangi belgelerin tercüme ya da noter onayı gerektirdiğini DAÜ’ye sor.',
+    docs: [
+      ['passport', 'Pasaport', 'Son kullanma tarihini kontrol et'],
+      ['id', 'Kimlik kartı', 'Aslı ve fotokopisi'],
+      ['acceptance', 'Kabul mektubu', 'DAÜ’den gelen kabul belgen'],
+      ['diploma', 'Lise diploması', 'Aslı ve fotokopisi'],
+      ['transcript', 'Not dökümü (transkript)', 'Aslı ve fotokopisi'],
+      ['payment', 'Ödeme dekontları', 'Okul ücreti ve depozito ödemelerinin kopyaları'],
+      ['photos', 'Vesikalık fotoğraflar', 'Birkaç tane yanında olsun'],
+      ['english', 'İngilizce sertifikası', 'Varsa (örneğin IELTS ya da TOEFL)']
+    ],
     items: [
-      ['route', 'before', 'Yolculuk rotanı seç', 'Türkiye’den Ercan’a ya da Larnaka’ya inip geçerek'],
-      ['docs', 'before', 'Belgelerini hazırla', 'Kabul mektubu, kimlik ya da pasaport, fotoğraf'],
-      ['transfer', 'before', 'Havalimanı transferini ayarla', 'Fiyatı yola çıkmadan anlaş'],
+      ['ticket', 'before', 'Kuzey Kıbrıs’a biletini al', 'Uçakla Ercan’a ya da feribotla Gazimağusa veya Girne’ye'],
+      ['docs', 'before', 'Belgelerini hazırla', 'Pasaport, kimlik, diploma, ödeme dekontları ve fazlası'],
       ['nights', 'before', 'İlk gecelerini ayarla', 'Yurt, doğrulanmış ev ya da kısa konaklama'],
-      ['sim', 'week', 'Yerel hat al', 'Kimliğini ya da pasaportunu yanında götür'],
+      ['transfer', 'before', 'DAÜ’ye transferini ayarla', ''],
+      ['register', 'day', 'DAÜ kaydını tamamla', 'Belgelerini yanına alıp üniversitede kaydını yaptır'],
+      ['sim', 'day', 'Yerel hat al', 'Kimliğini ya da pasaportunu yanında götür'],
       ['permit', 'week', 'Oturma izni başvurunu başlat', 'Belgeleri ve adımları üniversitenin uluslararası ofisine sor'],
       ['bank', 'week', 'Banka hesabı aç', 'Pasaport, öğrenci belgesi ve adres bilgini götür'],
-      ['bus', 'week', 'Kampüs çevresini öğren', 'Ulaşım sayfasından yürüyüş ve taksi sürelerine bak']
+      ['area', 'week', 'Çevreyi tanı', 'Ulaşım sayfasından yürüyüş ve taksi sürelerine bak']
     ],
     dT: 'Keşfet', dSub: 'Gazimağusa’da öğrencilerin gittiği yerler',
     cats: { all: 'Tümü', cafe: 'Kafeler', bar: 'Barlar', act: 'Aktiviteler', sport: 'Spor', taxi: 'Taksi' },
@@ -289,26 +321,26 @@ const S = {
     source: 'Bilgiler Google Haritalar’dan alındı ve değişmiş olabilir; gitmeden önce kontrol et. “Öne çıkan” yerler AdaGo tarafından öne çıkarılır.',
     back: 'Geri', why: 'Neden gidilir', about: 'Hakkında', open: 'Açık', addr: 'Adres', phone: 'Telefon',
     call: 'Ara', wa: 'WhatsApp', maps: 'Google Haritalar’da aç', directions: 'Yol tarifi al',
-    rT: 'Yol tarifi', from: 'Nereden', to: 'Nereye', me: 'Konumun', emu: 'EMU ana kampüs', meBtn: 'Konumum', emuBtn: 'EMU ana kampüs', originLabel: 'Başlangıç noktası',
-    sWait: 'Konumun bulunuyor…', sErr: 'Konumuna ulaşılamadı. Konum iznini aç ya da EMU ana kampüsü seç.',
-    sFar: 'Gazimağusa’dan 50 km’den daha uzaktasın. Denemek için EMU ana kampüsü seç.', useEmu: 'EMU ana kampüsü kullan', retry: 'Tekrar dene',
+    rT: 'Yol tarifi', from: 'Nereden', to: 'Nereye', me: 'Konumun', emu: 'DAÜ ana kampüs', meBtn: 'Konumum', emuBtn: 'DAÜ ana kampüs', originLabel: 'Başlangıç noktası',
+    sWait: 'Konumun bulunuyor…', sErr: 'Konumuna ulaşılamadı. Konum iznini aç ya da DAÜ ana kampüsü seç.',
+    sFar: 'Gazimağusa’dan 50 km’den daha uzaktasın. Denemek için DAÜ ana kampüsü seç.', useEmu: 'DAÜ ana kampüsü kullan', retry: 'Tekrar dene',
     tabs: { all: 'Tümü', taxi: 'Taksi', car: 'Araba', walk: 'Yürüyüş' }, three: '3 seçenek', min: ' dk', arrive: 'Varış ', rec: 'Önerilen', fast: 'En hızlı',
-    taxiEmu: 'Taksi seni EMU ana kapıda alır', taxiMe: 'Taksi seni bulunduğun yerden alır', wait: 'Bekleme yaklaşık 6 dk',
+    taxiEmu: 'Taksi seni DAÜ ana kapıda alır', taxiMe: 'Taksi seni bulunduğun yerden alır', wait: 'Bekleme yaklaşık 6 dk',
     ride: 'Yolculuk', drive: 'Arabayla git', walk: 'Yürüyerek git', about2: ' km · yaklaşık ', arriveAt: 'Varış: ',
     askPrice: 'Fiyatı binmeden önce sor', park: 'Park için birkaç dakika ekle', water: 'Yazın yanına su al',
     startMaps: 'Google Haritalar’da başlat', callTaxi: 'Taksi çağır',
     est: 'Süreler normal trafiğe göre tahminidir. Sokak sokak canlı yol tarifi için Google Haritalar’ı kullan.',
     tT: 'Ulaşım', tSub: 'Herhangi bir yere yol tarifi ve seni alacak taksiler.', tSearch: 'Yer ara', tWhere: 'Nereye gidiyorsun?',
-    tFromEmu: (n) => `EMU’dan taksiyle ${n} dk`, tTaxis: 'Taksiler', tNone: 'Aramana uyan yer yok. Başka bir isim dene.',
+    tFromEmu: (n) => `DAÜ’den taksiyle ${n} dk`, tTaxis: 'Taksiler', tNone: 'Aramana uyan yer yok. Başka bir isim dene.',
     helpT: 'Yardım ve güvenlik',
     helpSecs: [
       ['Ev ve depozito', ['Evi görmeden depozito gönderme.', 'Anladığın bir dilde yazılı sözleşme iste.', 'Her ödeme için makbuz al ve sakla.']],
       ['Taksi', ['Binmeden önce fiyatı sor.', 'Gece yolculuklarında plakayı bir arkadaşınla paylaş.']],
-      ['Geliş', ['Larnaka üzerinden geleceksen vize durumunu önceden kontrol et.', 'Oturma izni adımlarını üniversitenin uluslararası ofisine sor.']]
+      ['Geliş', ['Bilet almadan önce güncel uçuş ve feribot saatlerini kontrol et.', 'Oturma izni adımlarını üniversitenin uluslararası ofisine sor.']]
     ],
     emergencyT: 'Acil numaralar', police: 'Polis', ambulance: 'Ambulans', fire: 'İtfaiye',
     aboutT: 'AdaGo hakkında',
-    aboutP: 'AdaGo, Gazimağusa’daki öğrenciler için hazırlanan bağımsız bir rehberdir; EMU’nun bir parçası değildir. Mekan bilgileri Google Haritalar’dan alınmıştır.',
+    aboutP: 'AdaGo, Gazimağusa’daki öğrenciler için hazırlanan bağımsız bir rehberdir; DAÜ’nün bir parçası değildir. Mekan bilgileri Google Haritalar’dan alınmıştır.',
     foot: 'AdaGo · Gazimağusa öğrenci rehberi. Bilgiler değişmiş olabilir; önemli kararlar öncesi kontrol et.'
   },
   en: {
@@ -319,6 +351,7 @@ const S = {
     homeHousingT: 'Verified places to live, coming soon',
     homeHousingP: 'We’re checking flats and dorms near EMU in person. Join the list to hear first.',
     homeHousingBtn: 'Join the housing list',
+    comingT: 'Planning to come to North Cyprus?', comingP: 'From your ticket and documents to your first nights and your transfer to EMU, we’ll walk you through every step.', comingBtn: 'Yes, show me the steps', comingCont: 'Continue where you left off',
     progressT: 'Your arrival checklist', progress: (a, b) => `${a} of ${b} steps done`, progressBtn: 'Open checklist',
     weekT: 'This week in Famagusta', seeAll: 'See all',
     weekCards: [
@@ -348,18 +381,44 @@ const S = {
       ['The photos are real', 'We check the photos match the place you’ll actually rent.'],
       ['The price is confirmed', 'We confirm the rent, deposit and bills with the owner.']
     ],
-    aT: 'Arrival checklist', aProgress: 'Your progress', aRoutesT: 'Two ways to get here',
-    aRoutesP: 'There are direct flights from Turkey to Ercan. If you’d rather land in Larnaca, check first whether your passport needs a Republic of Cyprus visa.',
-    aBefore: 'Before you fly', aWeek: 'Your first week', aSaved: 'Your ticks are saved on this device.',
+    aT: 'Arrival checklist', aProgress: 'Your progress',
+    tripT: 'How are you getting to North Cyprus?', tripCheck: 'Check current flight and ferry times before you book.',
+    trips: {
+      ercan: { label: 'Fly to Ercan', info: 'Direct flights to Ercan Airport only leave from Turkey (for example Istanbul, Ankara, Izmir and Antalya). From Ercan it’s about 45 minutes by road to Gazimağusa (Famagusta).', transfer: 'About 45 min from Ercan to EMU' },
+      magusa: { label: 'Ferry to Gazimağusa', info: 'Ferries run from Mersin to Gazimağusa (Famagusta) port. The port is in the city centre, about 10 minutes from EMU by taxi.', transfer: 'About 10 min by taxi from the port to EMU' },
+      girne: { label: 'Ferry to Girne', info: 'Ferries run from Taşucu and Mersin to Girne (Kyrenia) port. From Girne it’s about an hour by road to Gazimağusa (Famagusta).', transfer: 'About an hour from Girne to EMU' }
+    },
+    aBefore: 'Before you travel', aDay: 'When you arrive', aWeek: 'Your first week', aSaved: 'Your ticks are saved on this device.',
+    transferQ: 'Have you arranged your transfer to EMU?', transferDone: 'Great, your transfer to EMU is sorted.', transferT: 'Ways to get to EMU',
+    kibhasNote: 'Airport shuttle bus from Ercan to the KIBHAS stop on EMU campus. Buy your ticket in advance on the KIBHAS app or at the airport; buses can fill up, so be there early.',
+    kibhasArea: 'Ercan Airport → EMU campus stop',
+    taxiT: 'Taxi', taxiNote: 'Door to door. Ask the price before you get in.', taxiBtn: 'See taxi companies',
+    nightsQ: 'Have you arranged a place to stay?', nightsYes: 'Yes, I have', nightsNo: 'Not yet', nightsDone: 'Great, your first nights are sorted.',
+    dormsT: 'Dorms near EMU', dormsMore: 'Join the housing list for verified flats',
+    dormsNote: 'Visit or video-call before you pay anything, and ask whether they offer short stays for your first few nights.',
+    dormsSrc: 'Details come from Google Maps. AdaGo hasn’t verified these dorms yet.', map: 'Map',
+    docsBtn: (a, b) => `Document list · ${a} of ${b} ready`, docsHide: 'Hide document list',
+    docsNote: 'Bring the original and a few photocopies of each. Ask EMU which documents need a translation or a notary stamp.',
+    docs: [
+      ['passport', 'Passport', 'Check the expiry date'],
+      ['id', 'National ID card', 'Original and a photocopy'],
+      ['acceptance', 'Acceptance letter', 'Your offer letter from EMU'],
+      ['diploma', 'High school diploma', 'Original and a photocopy'],
+      ['transcript', 'Transcript of grades', 'Original and a photocopy'],
+      ['payment', 'Payment receipts', 'Copies of your tuition and deposit payments'],
+      ['photos', 'Passport photos', 'Bring several'],
+      ['english', 'English certificate', 'If you have one (for example IELTS or TOEFL)']
+    ],
     items: [
-      ['route', 'before', 'Choose your route', 'Turkey to Ercan, or land in Larnaca and cross'],
-      ['docs', 'before', 'Get your documents ready', 'Acceptance letter, ID or passport, photos'],
-      ['transfer', 'before', 'Book your airport transfer', 'Agree the price before you travel'],
+      ['ticket', 'before', 'Book your ticket to North Cyprus', 'Fly to Ercan, or take the ferry to Gazimağusa or Girne'],
+      ['docs', 'before', 'Get your documents ready', 'Passport, ID, diploma, payment receipts and more'],
       ['nights', 'before', 'Arrange your first nights', 'Dorm, verified flat or a short stay'],
-      ['sim', 'week', 'Get a local SIM card', 'Bring your ID or passport to the shop'],
+      ['transfer', 'before', 'Book your transfer to EMU', ''],
+      ['register', 'day', 'Complete your EMU registration', 'Take your documents and finish registering at the university'],
+      ['sim', 'day', 'Get a local SIM card', 'Bring your ID or passport to the shop'],
       ['permit', 'week', 'Start your residence permit', 'Ask the university’s international office for the documents and steps'],
       ['bank', 'week', 'Open a bank account', 'Bring your passport, student certificate and address'],
-      ['bus', 'week', 'Learn your way around', 'Check walking and taxi times on the Transport page']
+      ['area', 'week', 'Get to know the area', 'Check walking and taxi times on the Transport page']
     ],
     dT: 'Discover', dSub: 'Places students go in Famagusta',
     cats: { all: 'All', cafe: 'Cafés', bar: 'Bars', act: 'Activities', sport: 'Sport', taxi: 'Taxi' },
@@ -383,7 +442,7 @@ const S = {
     helpSecs: [
       ['Housing and deposits', ['Don’t send a deposit before you’ve seen the place.', 'Ask for a written contract in a language you understand.', 'Get a receipt for every payment and keep it.']],
       ['Taxis', ['Ask the price before you get in.', 'On night rides, share the plate number with a friend.']],
-      ['Arriving', ['If you’re coming via Larnaca, check your visa situation first.', 'Ask the university’s international office about residence permit steps.']]
+      ['Arriving', ['Check current flight and ferry times before you book.', 'Ask the university’s international office about residence permit steps.']]
     ],
     emergencyT: 'Emergency numbers', police: 'Police', ambulance: 'Ambulance', fire: 'Fire',
     aboutT: 'About AdaGo',
@@ -394,7 +453,7 @@ const S = {
 
 const CONTACT_WHATSAPP = ''; // the AdaGo team's WhatsApp number in international format, digits only, e.g. 905331234567
 const EMU = { lat: 35.1423793, lng: 33.9116479 };
-const VIEWS = ['home', 'housing', 'arrival', 'discover', 'transport'];
+const VIEWS = ['home', 'arrival', 'discover', 'transport', 'housing'];
 
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -406,7 +465,11 @@ const st = {
   view: 'home', place: null, cat: 'all', q: '',
   origin: 'me', loc: null, rtab: 'all', ropen: null,
   htab: 'student', sent: false,
-  ticks: store.get('landed-arrival', {})
+  ticks: store.get('landed-arrival', {}),
+  docsOpen: false,
+  nightsAns: store.get('adago-nights', null),
+  transferAns: store.get('adago-transfer', null),
+  trip: ['ercan', 'magusa', 'girne'].includes(store.get('adago-trip', 'ercan')) ? store.get('adago-trip', 'ercan') : 'ercan'
 };
 
 const T = () => S[st.lang];
@@ -433,6 +496,7 @@ const I = {
   walk: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m9 20 3-6 3 3v4"/><path d="M7 12l3-4 4 2 3 3"/></svg>',
   car: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
   logo: "<svg width=\"34\" height=\"34\" viewBox=\"0 0 120 120\" aria-hidden=\"true\"><path d=\"M60 112C60 112 96 79 96 50A36 36 0 0 0 24 50C24 79 60 112 60 112Z\" style=\"fill:var(--pin)\"/><path d=\"M31.0 51.5 L32.5 53.4 L34.2 61.0 L39.2 64.4 L44.7 65.0 L50.0 67.4 L51.2 64.7 L58.0 62.8 L64.7 60.4 L65.2 56.7 L71.2 55.2 L76.2 54.9 L73.5 52.4 L72.7 48.2 L75.5 42.7 L84.2 37.2 L89.0 32.6 L84.7 34.7 L76.7 39.3 L70.5 41.7 L61.7 43.6 L57.2 43.6 L47.5 41.7 L47.2 46.3 L44.2 48.8 L39.2 48.5 L35.5 52.1Z\" fill=\"#FFFFFF\" stroke=\"#FFFFFF\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>",
+  plane: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
   waves: '<svg class="waves" viewBox="0 0 300 200" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" aria-hidden="true"><path d="M10 60c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/><path d="M10 110c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/><path d="M10 160c30-24 60-24 90 0s60 24 90 0 60-24 90 0"/></svg>'
 };
 
@@ -490,7 +554,7 @@ function placeCard(p) {
   return `<button class="place" data-go="place:${p.id}">
     ${catMark(p)}
     <span class="body">
-      <span class="name"><span>${esc(nm(p))}</span>${p.featured ? `<span class="pill dark">${esc(t.featured)}</span>` : ''}</span>
+      <span class="name"><span>${esc(nm(p))}</span>${p.featured ? `<span class="pill feat">${esc(t.featured)}</span>` : ''}</span>
       <span class="meta">${esc(t.catOne[p.cat])} · ${esc(p.area[L()])}</span>
       <span class="meta">${esc(p.hours[L()])}</span>
       <span><span class="pill">${esc(p.tag[L()])}</span></span>
@@ -506,6 +570,10 @@ function vHome() {
   const t = T(), done = t.items.filter((i) => st.ticks[i[0]]).length, total = t.items.length;
   const week = t.weekCards.map((w) => `<button class="week" data-go="place:${w.id}">
       <span class="small">${esc(w.when)}</span><span class="when">${esc(w.what)}</span></button>`).join('');
+  const progress = done > 0 ? `<div class="stack" style="gap:6px">
+        <span class="small" style="font-size:14px">${esc(t.progress(done, total))}</span>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${Math.round(done / total * 100)}%"></i></div>
+      </div>` : '';
   return `<div class="view">
     <section class="hero">
       ${I.waves}
@@ -513,23 +581,25 @@ function vHome() {
       <h1>${esc(t.hello)}</h1>
       <p>${esc(t.helloSub)}</p>
     </section>
-    <div class="grid2">
-      <section class="card pad stack" aria-labelledby="hh">
-        <h2 id="hh">${esc(t.homeHousingT)}</h2>
-        <p class="lede" style="font-size:16px">${esc(t.homeHousingP)}</p>
-        <div><button class="btn primary" data-go="housing">${I.building}${esc(t.homeHousingBtn)}</button></div>
-      </section>
-      <section class="card pad stack" aria-labelledby="hp">
-        <div class="sec-head"><h2 id="hp">${esc(t.progressT)}</h2><span class="small">${esc(t.progress(done, total))}</span></div>
-        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${Math.round(done / total * 100)}%"></i></div>
-        <div><button class="btn" data-go="arrival">${I.list}${esc(t.progressBtn)}</button></div>
-      </section>
-    </div>
     <section class="sec" aria-labelledby="hw">
       <div class="sec-head"><h2 id="hw">${esc(t.weekT)}</h2><button class="link-btn" data-go="discover">${esc(t.seeAll)}</button></div>
       <div class="rail">${week}</div>
     </section>
+    <section class="card pad" aria-labelledby="hc" style="display:flex;gap:16px;align-items:flex-start;border-color:var(--sea)">
+      <span style="flex-shrink:0;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--sea-tint);color:var(--sea)">${I.plane}</span>
+      <div class="stack" style="flex:1;min-width:0">
+        <h2 id="hc">${esc(t.comingT)}</h2>
+        <p class="lede" style="font-size:16px">${esc(t.comingP)}</p>
+        ${progress}
+        <div><button class="btn primary" data-go="arrival">${I.list}${esc(done > 0 ? t.comingCont : t.comingBtn)}</button></div>
+      </div>
+    </section>
     <div class="grid2">
+      <section class="card pad stack" aria-labelledby="hh">
+        <h2 id="hh">${esc(t.homeHousingT)}</h2>
+        <p class="lede" style="font-size:16px">${esc(t.homeHousingP)}</p>
+        <div><button class="btn" data-go="housing">${I.building}${esc(t.homeHousingBtn)}</button></div>
+      </section>
       <section class="sec" aria-labelledby="hm">
         <h2 id="hm">${esc(t.moveT)}</h2>
         <div class="card" style="overflow:hidden">
@@ -537,12 +607,12 @@ function vHome() {
           <button class="row" data-go="transport" data-anchor="taxis"><span class="ico" style="background:var(--sun-tint);color:var(--sun-ink)">${I.phone}</span><span class="txt"><span class="t">${esc(t.moveTaxi)}</span><span class="s">${esc(t.moveTaxiSub)}</span></span><span class="chev">${I.chev}</span></button>
         </div>
       </section>
-      <section class="note" aria-labelledby="ht">
-        <h3 id="ht" style="color:var(--clay-ink)">${esc(t.tipT)}</h3>
-        <p>${esc(t.tipP)}</p>
-        <div><button class="link-btn" style="color:var(--clay-ink)" data-go="help">${esc(t.tipLink)}</button></div>
-      </section>
     </div>
+    <section class="note" aria-labelledby="ht">
+      <h3 id="ht" style="color:var(--clay-ink)">${esc(t.tipT)}</h3>
+      <p>${esc(t.tipP)}</p>
+      <div><button class="link-btn" style="color:var(--clay-ink)" data-go="help">${esc(t.tipLink)}</button></div>
+    </section>
   </div>`;
 }
 
@@ -587,17 +657,78 @@ function vHousing() {
 
 function vArrival() {
   const t = T(), done = t.items.filter((i) => st.ticks[i[0]]).length, total = t.items.length;
-  const list = (sec) => t.items.filter((i) => i[1] === sec).map((i) => `<label class="check ${st.ticks[i[0]] ? 'done' : ''}">
-      <input type="checkbox" data-tick="${i[0]}" ${st.ticks[i[0]] ? 'checked' : ''}>
-      <span><span class="t">${esc(i[2])}</span><br><span class="s">${esc(i[3])}</span></span></label>`).join('');
+  const trip = t.trips[st.trip] || t.trips.ercan;
+  const sub = (i) => (i[0] === 'transfer' ? trip.transfer : i[3]);
+  const docsDone = t.docs.filter((d) => st.ticks['doc-' + d[0]]).length;
+  const row = (key, title, subText, extra) => `<label class="check ${st.ticks[key] ? 'done' : ''}"${extra || ''}>
+      <input type="checkbox" data-tick="${key}" ${st.ticks[key] ? 'checked' : ''}>
+      <span><span class="t">${esc(title)}</span><br><span class="s">${esc(subText)}</span></span></label>`;
+  const docsBlock = () => `<div style="border-top:1px solid var(--line);padding:4px 16px 12px 54px">
+      <button class="link-btn" data-act="docs" aria-expanded="${st.docsOpen}">${esc(st.docsOpen ? t.docsHide : t.docsBtn(docsDone, t.docs.length))}</button>
+      ${st.docsOpen ? `<div class="card" style="margin-top:4px">${t.docs.map((d) => row('doc-' + d[0], d[1], d[2])).join('')}</div><p class="small" style="margin:10px 0 0">${esc(t.docsNote)}</p>` : ''}
+    </div>`;
+  const dormCard = (d) => {
+    const dg = d.phone.replace(/\D/g, ''), mobile = d.phone.indexOf('+90 5') === 0;
+    const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.n + ', Gazimağusa') + '&query_place_id=' + d.pid;
+    return `<div class="card pad stack" style="gap:6px;padding:14px">
+      <h3 style="font-size:16px">${esc(st.lang === 'tr' && d.n_tr ? d.n_tr : d.n)}</h3>
+      <span class="small" style="font-size:14px">${esc(d.area[L()])} · ${esc(d.phone)}</span>
+      <span style="font-size:14px;color:var(--ink-2)">${esc(d.note[L()])}</span>
+      <div class="btns tight" style="margin-top:4px">
+        <a class="btn" style="min-height:44px;font-size:14px" href="tel:+${dg}">${I.phone}${esc(t.call)}</a>
+        ${mobile ? `<a class="btn" style="min-height:44px;font-size:14px" href="https://wa.me/${dg}" target="_blank" rel="noopener">${I.chat}${esc(t.wa)}</a>` : ''}
+        <a class="btn" style="min-height:44px;font-size:14px" href="${maps}" target="_blank" rel="noopener">${I.map}${esc(t.map)}</a>
+      </div></div>`;
+  };
+  const transferBlock = () => {
+    if (st.ticks.transfer) return `<div style="border-top:1px solid var(--line);padding:10px 16px 14px 54px"><span class="small" style="font-size:14px;color:var(--sea-ink);font-weight:600">${esc(t.transferDone)}</span></div>`;
+    const q = `<p style="margin:0;font-weight:600">${esc(t.transferQ)}</p>
+      <div class="btns"><button class="btn" style="min-height:44px" data-act="transfer:yes">${esc(t.nightsYes)}</button><button class="btn" style="min-height:44px" data-act="transfer:no" aria-pressed="${st.transferAns === 'no'}">${esc(t.nightsNo)}</button></div>`;
+    if (st.transferAns !== 'no') return `<div class="stack" style="border-top:1px solid var(--line);padding:12px 16px 14px">${q}</div>`;
+    const kmaps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('KIBHAS DAÜ Kampüs, Gazimağusa') + '&query_place_id=ChIJd0rhcODJ3xQRDQ_ayVR1zXM';
+    const kibhas = st.trip === 'ercan' ? `<div class="card pad stack" style="gap:6px;padding:14px">
+      <h3 style="font-size:16px">KIBHAS</h3>
+      <span class="small" style="font-size:14px">${esc(t.kibhasArea)} · +90 533 850 29 24</span>
+      <span style="font-size:14px;color:var(--ink-2)">${esc(t.kibhasNote)}</span>
+      <div class="btns tight" style="margin-top:4px">
+        <a class="btn" style="min-height:44px;font-size:14px" href="tel:+905338502924">${I.phone}${esc(t.call)}</a>
+        <a class="btn" style="min-height:44px;font-size:14px" href="https://wa.me/905338502924" target="_blank" rel="noopener">${I.chat}${esc(t.wa)}</a>
+        <a class="btn" style="min-height:44px;font-size:14px" href="${kmaps}" target="_blank" rel="noopener">${I.map}${esc(t.map)}</a>
+      </div></div>` : '';
+    const taxi = `<div class="card pad stack" style="gap:6px;padding:14px">
+      <h3 style="font-size:16px">${esc(t.taxiT)}</h3>
+      <span style="font-size:14px;color:var(--ink-2)">${esc(trip.transfer)}. ${esc(t.taxiNote)}</span>
+      <div class="btns" style="margin-top:4px"><button class="btn sun" style="min-height:44px;font-size:14px" data-go="transport" data-anchor="taxis">${I.phone}${esc(t.taxiBtn)}</button></div></div>`;
+    return `<div class="stack" style="border-top:1px solid var(--line);padding:12px 16px 14px">${q}
+      <h3 style="margin-top:6px">${esc(t.transferT)}</h3>
+      <div class="stack" style="gap:8px">${kibhas}${taxi}</div>
+      <p class="small" style="margin:0">${esc(t.dormsSrc.split('.')[0])}.</p></div>`;
+  };
+  const nightsBlock = () => {
+    if (st.ticks.nights) return `<div style="border-top:1px solid var(--line);padding:10px 16px 14px 54px"><span class="small" style="font-size:14px;color:var(--sea-ink);font-weight:600">${esc(t.nightsDone)}</span></div>`;
+    const q = `<p style="margin:0;font-weight:600">${esc(t.nightsQ)}</p>
+      <div class="btns"><button class="btn" style="min-height:44px" data-act="nights:yes" aria-pressed="false">${esc(t.nightsYes)}</button><button class="btn" style="min-height:44px" data-act="nights:no" aria-pressed="${st.nightsAns === 'no'}">${esc(t.nightsNo)}</button></div>`;
+    const dorms = st.nightsAns === 'no' ? `<h3 style="margin-top:6px">${esc(t.dormsT)}</h3>
+      <p class="small" style="margin:0;font-size:14px">${esc(t.dormsNote)}</p>
+      <div class="stack" style="gap:8px">${DORMS.map(dormCard).join('')}</div>
+      <p class="small" style="margin:0">${esc(t.dormsSrc)}</p>
+      <div><button class="link-btn" data-go="housing">${esc(t.dormsMore)}</button></div>` : '';
+    return `<div class="stack" style="border-top:1px solid var(--line);padding:12px 16px 14px">${q}${dorms}</div>`;
+  };
+  const list = (sec) => t.items.filter((i) => i[1] === sec).map((i) => row(i[0], i[2], sub(i), i[0] !== t.items.filter((x) => x[1] === sec)[0][0] ? ' style="border-top:1px solid var(--line)"' : '') + (i[0] === 'docs' ? docsBlock() : '') + (i[0] === 'nights' ? nightsBlock() : '') + (i[0] === 'transfer' ? transferBlock() : '')).join('');
+  const trips = Object.keys(t.trips).map((k) => `<button class="chip" aria-pressed="${st.trip === k}" data-act="trip:${k}">${esc(t.trips[k].label)}</button>`).join('');
   return `<div class="view narrow">
     <div class="view-head"><h1>${esc(t.aT)}</h1><span class="uni">${I.pin(16)}${esc(t.uni)}</span></div>
     <section class="card pad stack" aria-labelledby="ap">
       <div class="sec-head"><h2 id="ap" style="font-size:18px">${esc(t.aProgress)}</h2><span class="small">${esc(t.progress(done, total))}</span></div>
       <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${done}"><i style="width:${Math.round(done / total * 100)}%"></i></div>
     </section>
-    <section class="why"><h3>${esc(t.aRoutesT)}</h3><p>${esc(t.aRoutesP)}</p></section>
+    <section class="sec" aria-labelledby="at"><h2 id="at">${esc(t.tripT)}</h2>
+      <div class="chips" role="group" aria-labelledby="at" style="flex-wrap:wrap;overflow:visible;margin:0;padding:0">${trips}</div>
+      <div class="why"><p style="margin:0">${esc(trip.info)}</p><p class="small" style="margin-top:6px">${esc(t.tripCheck)}</p></div>
+    </section>
     <section class="sec" aria-labelledby="ab"><h2 id="ab">${esc(t.aBefore)}</h2><div class="card">${list('before')}</div></section>
+    <section class="sec" aria-labelledby="ad"><h2 id="ad">${esc(t.aDay)}</h2><div class="card">${list('day')}</div></section>
     <section class="sec" aria-labelledby="aw"><h2 id="aw">${esc(t.aWeek)}</h2><div class="card">${list('week')}</div></section>
     <p class="small">${esc(t.aSaved)}</p>
   </div>`;
@@ -789,7 +920,7 @@ function renderChrome() {
         <button aria-pressed="${st.lang === 'en'}" data-act="lang:en" lang="en">EN</button>
       </div>
     </div></div>`;
-  document.getElementById('tabs').innerHTML = navBtn('home', I.home) + navBtn('housing', I.building) + navBtn('arrival', I.list) + navBtn('discover', I.compass) + navBtn('transport', I.bus);
+  document.getElementById('tabs').innerHTML = navBtn('home', I.home) + navBtn('arrival', I.list) + navBtn('discover', I.compass) + navBtn('transport', I.bus) + navBtn('housing', I.building);
   document.getElementById('tabs').setAttribute('aria-label', t.nav.home);
   document.getElementById('foot').innerHTML = `<p>${esc(t.foot)}</p>`;
   document.documentElement.lang = st.lang;
@@ -819,6 +950,16 @@ document.addEventListener('click', (e) => {
   if (act === 'lang') { st.lang = val; store.set('landed-lang', val); render(); }
   else if (act === 'cat') { st.cat = val; render(); }
   else if (act === 'htab') { st.htab = val; st.sent = false; render(); }
+  else if (act === 'transfer') {
+    st.transferAns = val; store.set('adago-transfer', val);
+    st.ticks.transfer = val === 'yes'; store.set('landed-arrival', st.ticks); render();
+  }
+  else if (act === 'nights') {
+    st.nightsAns = val; store.set('adago-nights', val);
+    st.ticks.nights = val === 'yes'; store.set('landed-arrival', st.ticks); render();
+  }
+  else if (act === 'docs') { st.docsOpen = !st.docsOpen; render(); }
+  else if (act === 'trip') { st.trip = val; store.set('adago-trip', val); render(); }
   else if (act === 'origin') { st.origin = val; st.ropen = null; if (val === 'me' && !(st.loc && typeof st.loc === 'object')) locate(); render(); }
   else if (act === 'retry') { locate(); render(); }
   else if (act === 'rtab') { st.rtab = val; st.ropen = null; render(); }
@@ -827,7 +968,13 @@ document.addEventListener('click', (e) => {
 document.addEventListener('change', (e) => {
   const k = e.target.getAttribute && e.target.getAttribute('data-tick');
   if (!k) return;
-  st.ticks[k] = e.target.checked; store.set('landed-arrival', st.ticks); render();
+  st.ticks[k] = e.target.checked;
+  const docKeys = T().docs.map((d) => 'doc-' + d[0]);
+  if (k === 'transfer') { st.transferAns = e.target.checked ? 'yes' : null; store.set('adago-transfer', st.transferAns); }
+  if (k === 'nights') { st.nightsAns = e.target.checked ? 'yes' : null; store.set('adago-nights', st.nightsAns); }
+  if (k === 'docs') docKeys.forEach((d) => { st.ticks[d] = e.target.checked; });
+  if (k.indexOf('doc-') === 0) st.ticks.docs = docKeys.every((d) => st.ticks[d]);
+  store.set('landed-arrival', st.ticks); render();
   const el = document.querySelector(`[data-tick="${k}"]`); if (el) el.focus();
 });
 document.addEventListener('input', (e) => {
